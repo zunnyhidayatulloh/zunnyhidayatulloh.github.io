@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literasi dan Etika Kecerdasan Artifisial - Kelas 10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .gradient-text { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-50 to-blue-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-blue-600 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">🤖</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold gradient-text">Literasi & Etika Kecerdasan Artifisial</h1>
+                        <p class="text-sm text-gray-600">Kelas 10 - Fase E | Literasi & Etika Kecerdasan Artifisial</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">Capaian Pembelajaran:</p>
+                    <p class="text-xs text-purple-600 font-medium">Memahami cara kerja AI, profesi AI, dan tanggung jawab etis</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex space-x-8 overflow-x-auto">
+                <button onclick="showSection('cara-kerja')" class="nav-btn py-4 px-2 border-b-2 border-purple-500 text-purple-600 font-medium whitespace-nowrap">
+                    🧠 Cara Kerja AI
+                </button>
+                <button onclick="showSection('pengenalan-pola')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                    👁️ Pengenalan Pola
+                </button>
+                <button onclick="showSection('profesi')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                    💼 Profesi AI
+                </button>
+                <button onclick="showSection('etika')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                    ⚖️ Etika & Hukum
+                </button>
+                <button onclick="showSection('simulasi')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                    🎮 Simulasi
+                </button>
+                <button onclick="showSection('kuis')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700 whitespace-nowrap">
+                    🎯 Evaluasi
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <!-- Section: Cara Kerja AI -->
+        <div id="cara-kerja" class="section fade-in">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    🧠 <span class="ml-3">Cara Kerja Kecerdasan Artifisial</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-purple-800 mb-3">Apa itu Kecerdasan Artifisial?</h3>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Kecerdasan Artifisial (AI) adalah teknologi yang memungkinkan komputer untuk melakukan tugas-tugas yang biasanya memerlukan kecerdasan manusia, seperti mengenali gambar, memahami bahasa, dan membuat keputusan.
+                            </p>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">Contoh AI dalam Kehidupan:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Asisten virtual (Siri, Google Assistant)</li>
+                                    <li>• Rekomendasi Netflix/YouTube</li>
+                                    <li>• Filter spam email</li>
+                                    <li>• Navigasi GPS</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-green-800 mb-3">Proses Pembelajaran AI</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                                    <span class="text-gray-700">Pengumpulan Data</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                                    <span class="text-gray-700">Pelatihan Model</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                                    <span class="text-gray-700">Pengujian & Validasi</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                                    <span class="text-gray-700">Implementasi</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-indigo-100 to-purple-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Jenis-Jenis AI</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg card-hover">
+                                <h4 class="font-medium text-gray-800 mb-2">🤖 Machine Learning</h4>
+                                <p class="text-sm text-gray-600">AI yang belajar dari data tanpa diprogram secara eksplisit</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg card-hover">
+                                <h4 class="font-medium text-gray-800 mb-2">🧠 Deep Learning</h4>
+                                <p class="text-sm text-gray-600">Menggunakan jaringan saraf tiruan yang meniru otak manusia</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg card-hover">
+                                <h4 class="font-medium text-gray-800 mb-2">💬 Natural Language Processing</h4>
+                                <p class="text-sm text-gray-600">AI yang memahami dan memproses bahasa manusia</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg card-hover">
+                                <h4 class="font-medium text-gray-800 mb-2">👁️ Computer Vision</h4>
+                                <p class="text-sm text-gray-600">AI yang dapat "melihat" dan memahami gambar/video</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Pengenalan Pola -->
+        <div id="pengenalan-pola" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    👁️ <span class="ml-3">Pengenalan Pola Citra dan Suara</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Pengenalan Citra -->
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4 flex items-center">
+                            🖼️ <span class="ml-2">Pengenalan Citra</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">AI dapat mengenali objek, wajah, dan pola dalam gambar melalui proses:</p>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">Tahapan Proses:</h4>
+                                <ol class="text-sm text-gray-600 space-y-1">
+                                    <li>1. Preprocessing - Membersihkan dan menyiapkan gambar</li>
+                                    <li>2. Feature Extraction - Mengidentifikasi ciri-ciri penting</li>
+                                    <li>3. Pattern Recognition - Mencocokkan dengan pola yang dipelajari</li>
+                                    <li>4. Classification - Menentukan kategori objek</li>
+                                </ol>
+                            </div>
+                            <div class="bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">Contoh Aplikasi:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Face ID di smartphone</li>
+                                    <li>• Deteksi objek di kamera mobil</li>
+                                    <li>• Diagnosis medis dari X-ray</li>
+                                    <li>• Filter Instagram/Snapchat</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pengenalan Suara -->
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4 flex items-center">
+                            🎵 <span class="ml-2">Pengenalan Suara</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">AI dapat memahami dan memproses suara manusia melalui:</p>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">Tahapan Proses:</h4>
+                                <ol class="text-sm text-gray-600 space-y-1">
+                                    <li>1. Audio Capture - Merekam gelombang suara</li>
+                                    <li>2. Signal Processing - Menganalisis frekuensi dan amplitudo</li>
+                                    <li>3. Speech Recognition - Mengubah suara menjadi teks</li>
+                                    <li>4. Natural Language Understanding - Memahami makna</li>
+                                </ol>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-100 to-blue-100 p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">Contoh Aplikasi:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Siri, Google Assistant, Alexa</li>
+                                    <li>• Transkripsi otomatis video</li>
+                                    <li>• Terjemahan suara real-time</li>
+                                    <li>• Voice control smart home</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo Interaktif -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Demo: Simulasi Pengenalan Pola</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-3">Simulasi Pengenalan Gambar</h4>
+                            <div class="space-y-3">
+                                <div class="grid grid-cols-3 gap-2">
+                                    <button onclick="recognizeImage('cat')" class="p-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors text-center">
+                                        🐱<br><span class="text-xs">Kucing</span>
+                                    </button>
+                                    <button onclick="recognizeImage('dog')" class="p-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors text-center">
+                                        🐶<br><span class="text-xs">Anjing</span>
+                                    </button>
+                                    <button onclick="recognizeImage('car')" class="p-3 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors text-center">
+                                        🚗<br><span class="text-xs">Mobil</span>
+                                    </button>
+                                </div>
+                                <div id="imageResult" class="bg-gray-100 p-3 rounded-lg text-center text-gray-600">
+                                    Klik gambar untuk simulasi pengenalan
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-3">Simulasi Pengenalan Suara</h4>
+                            <div class="space-y-3">
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="recognizeVoice('hello')" class="p-3 bg-green-100 rounded-lg hover:bg-green-200 transition-colors">
+                                        "Halo"
+                                    </button>
+                                    <button onclick="recognizeVoice('music')" class="p-3 bg-green-100 rounded-lg hover:bg-green-200 transition-colors">
+                                        "Putar musik"
+                                    </button>
+                                    <button onclick="recognizeVoice('weather')" class="p-3 bg-green-100 rounded-lg hover:bg-green-200 transition-colors">
+                                        "Cuaca hari ini"
+                                    </button>
+                                    <button onclick="recognizeVoice('time')" class="p-3 bg-green-100 rounded-lg hover:bg-green-200 transition-colors">
+                                        "Jam berapa?"
+                                    </button>
+                                </div>
+                                <div id="voiceResult" class="bg-gray-100 p-3 rounded-lg text-center text-gray-600">
+                                    Klik perintah suara untuk simulasi
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Profesi AI -->
+        <div id="profesi" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    💼 <span class="ml-3">Profesi di Bidang Kecerdasan Artifisial</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-lg card-hover">
+                        <div class="text-4xl mb-4">👨‍💻</div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">AI Engineer</h3>
+                        <p class="text-gray-700 mb-4">Mengembangkan dan mengimplementasikan sistem AI</p>
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-800">Tugas:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Membangun model machine learning</li>
+                                <li>• Mengoptimalkan algoritma AI</li>
+                                <li>• Integrasi AI ke aplikasi</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 bg-blue-100 p-3 rounded-lg">
+                            <p class="text-sm text-blue-800"><strong>Gaji:</strong> Rp 15-50 juta/bulan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-lg card-hover">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-semibold text-green-800 mb-3">Data Scientist</h3>
+                        <p class="text-gray-700 mb-4">Menganalisis data untuk menghasilkan insight bisnis</p>
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-800">Tugas:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Analisis data kompleks</li>
+                                <li>• Membuat model prediktif</li>
+                                <li>• Visualisasi data</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 bg-green-100 p-3 rounded-lg">
+                            <p class="text-sm text-green-800"><strong>Gaji:</strong> Rp 12-40 juta/bulan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-lg card-hover">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-xl font-semibold text-purple-800 mb-3">AI Product Manager</h3>
+                        <p class="text-gray-700 mb-4">Mengelola pengembangan produk berbasis AI</p>
+                        <div class="space-y-2">
+                            <h4 class="font-medium text-gray-800">Tugas:</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Strategi produk AI</li>
+                                <li>• Koordinasi tim teknis</li>
+                                <li>• Analisis kebutuhan user</li>
+                            </ul>
+                        </div>
+                        <div class="mt-4 bg-purple-100 p-3 rounded-lg">
+                            <p class="text-sm text-purple-800"><strong>Gaji:</strong> Rp 20-60 juta/bulan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profesi Lainnya -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-yellow-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-yellow-800 mb-4">Profesi AI Lainnya</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-800">🔬 AI Researcher</h4>
+                                <p class="text-sm text-gray-600">Meneliti teknologi AI terbaru</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-800">⚖️ AI Ethics Specialist</h4>
+                                <p class="text-sm text-gray-600">Memastikan AI digunakan secara etis</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-800">🎓 AI Trainer</h4>
+                                <p class="text-sm text-gray-600">Melatih dan mengajar teknologi AI</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg">
+                                <h4 class="font-medium text-gray-800">🛡️ AI Security Analyst</h4>
+                                <p class="text-sm text-gray-600">Mengamankan sistem AI dari ancaman</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Persiapan Karir AI</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">📚 Skill yang Dibutuhkan:</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Matematika & Statistik</li>
+                                    <li>• Programming (Python, R)</li>
+                                    <li>• Machine Learning</li>
+                                    <li>• Problem Solving</li>
+                                    <li>• Komunikasi</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">🎯 Langkah Persiapan:</h4>
+                                <ol class="text-sm text-gray-600 space-y-1">
+                                    <li>1. Pelajari dasar-dasar programming</li>
+                                    <li>2. Kuasai matematika dan statistik</li>
+                                    <li>3. Ikuti kursus online AI/ML</li>
+                                    <li>4. Buat proyek portfolio</li>
+                                    <li>5. Magang di perusahaan tech</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Etika & Hukum -->
+        <div id="etika" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    ⚖️ <span class="ml-3">Etika dan Tanggung Jawab Hukum AI</span>
+                </h2>
+                
+                <div class="bg-red-50 border-l-4 border-red-400 p-6 mb-8">
+                    <h3 class="text-lg font-semibold text-red-800 mb-2">⚠️ Prinsip Penting</h3>
+                    <p class="text-red-700">
+                        Manusia harus selalu memikul tanggung jawab atas keputusan AI. Pada kondisi kritis, pengambilan keputusan tidak boleh sepenuhnya diserahkan kepada AI.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-orange-800 mb-4">🚨 Risiko dan Tantangan AI</h3>
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Bias dan Diskriminasi</h4>
+                                    <p class="text-sm text-gray-600">AI dapat mewarisi bias dari data pelatihan, menyebabkan diskriminasi terhadap kelompok tertentu.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Privasi Data</h4>
+                                    <p class="text-sm text-gray-600">Penggunaan data pribadi tanpa izin atau penyalahgunaan informasi sensitif.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Pengangguran Teknologi</h4>
+                                    <p class="text-sm text-gray-600">Otomatisasi dapat menggantikan pekerjaan manusia dalam berbagai sektor.</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-medium text-gray-800 mb-2">Keamanan Siber</h4>
+                                    <p class="text-sm text-gray-600">AI dapat digunakan untuk serangan siber atau dimanipulasi oleh pihak jahat.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-4">✅ Prinsip Etika AI</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-start space-x-3">
+                                    <span class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-1">1</span>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Transparansi</h4>
+                                        <p class="text-sm text-gray-600">AI harus dapat dijelaskan dan dipahami cara kerjanya</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-1">2</span>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Keadilan</h4>
+                                        <p class="text-sm text-gray-600">Tidak boleh diskriminatif terhadap kelompok tertentu</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-1">3</span>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Akuntabilitas</h4>
+                                        <p class="text-sm text-gray-600">Ada yang bertanggung jawab atas keputusan AI</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-1">4</span>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Privasi</h4>
+                                        <p class="text-sm text-gray-600">Melindungi data dan privasi pengguna</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <span class="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-xs font-bold mt-1">5</span>
+                                    <div>
+                                        <h4 class="font-medium text-gray-800">Keamanan</h4>
+                                        <p class="text-sm text-gray-600">Aman dari penyalahgunaan dan serangan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Studi Kasus -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">📋 Studi Kasus Etika AI</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-red-600 mb-2">❌ Kasus Bermasalah</h4>
+                            <div class="space-y-3">
+                                <div class="border-l-4 border-red-300 pl-3">
+                                    <h5 class="font-medium text-gray-800">Rekrutmen Bias</h5>
+                                    <p class="text-sm text-gray-600">AI rekrutmen yang bias terhadap gender tertentu karena data pelatihan yang tidak seimbang.</p>
+                                </div>
+                                <div class="border-l-4 border-red-300 pl-3">
+                                    <h5 class="font-medium text-gray-800">Pengenalan Wajah Rasis</h5>
+                                    <p class="text-sm text-gray-600">Sistem pengenalan wajah yang kurang akurat untuk orang berkulit gelap.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-green-600 mb-2">✅ Praktik Baik</h4>
+                            <div class="space-y-3">
+                                <div class="border-l-4 border-green-300 pl-3">
+                                    <h5 class="font-medium text-gray-800">AI Medis dengan Supervisi</h5>
+                                    <p class="text-sm text-gray-600">AI diagnosis yang selalu dikonfirmasi oleh dokter sebelum keputusan final.</p>
+                                </div>
+                                <div class="border-l-4 border-green-300 pl-3">
+                                    <h5 class="font-medium text-gray-800">Transparansi Algoritma</h5>
+                                    <p class="text-sm text-gray-600">Platform media sosial yang menjelaskan cara kerja algoritma rekomendasi mereka.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Simulasi -->
+        <div id="simulasi" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    🎮 <span class="ml-3">Simulasi Pengambilan Keputusan AI</span>
+                </h2>
+                
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                    <p class="text-yellow-800">
+                        <strong>Tujuan:</strong> Memahami kapan manusia harus mengambil alih keputusan dari AI dan mengapa tanggung jawab tetap ada pada manusia.
+                    </p>
+                </div>
+
+                <div id="simulationContainer" class="space-y-6">
+                    <!-- Skenario 1: Mobil Otonom -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">🚗 Skenario: Mobil Otonom</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-700 mb-4">
+                                    Mobil otonom Anda mendeteksi situasi darurat: ada anak kecil yang tiba-tiba menyeberang jalan. AI harus memilih antara menabrak anak atau menabrak pohon (membahayakan penumpang).
+                                </p>
+                                <div class="space-y-2">
+                                    <button onclick="makeDecision('autonomous', 'ai')" class="w-full p-3 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">
+                                        Biarkan AI Memutuskan
+                                    </button>
+                                    <button onclick="makeDecision('autonomous', 'human')" class="w-full p-3 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">
+                                        Manusia Mengambil Alih
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="autonomousResult" class="bg-white p-4 rounded-lg">
+                                <p class="text-gray-600 text-center">Pilih keputusan untuk melihat analisis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skenario 2: Diagnosis Medis -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">🏥 Skenario: Diagnosis Medis</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-700 mb-4">
+                                    AI mendiagnosis pasien dengan kanker stadium lanjut (akurasi 95%). Namun, ada 5% kemungkinan salah diagnosis. Haruskah langsung memberikan pengobatan berdasarkan AI?
+                                </p>
+                                <div class="space-y-2">
+                                    <button onclick="makeDecision('medical', 'ai')" class="w-full p-3 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">
+                                        Langsung Ikuti Diagnosis AI
+                                    </button>
+                                    <button onclick="makeDecision('medical', 'human')" class="w-full p-3 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">
+                                        Konsultasi Dokter Dulu
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="medicalResult" class="bg-white p-4 rounded-lg">
+                                <p class="text-gray-600 text-center">Pilih keputusan untuk melihat analisis</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skenario 3: Sistem Keamanan -->
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-purple-800 mb-4">🛡️ Skenario: Sistem Keamanan</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-gray-700 mb-4">
+                                    AI keamanan bandara mendeteksi objek mencurigakan dalam tas seseorang. Sistem merekomendasikan untuk menahan orang tersebut, tapi bisa jadi false positive.
+                                </p>
+                                <div class="space-y-2">
+                                    <button onclick="makeDecision('security', 'ai')" class="w-full p-3 bg-red-100 text-red-800 rounded-lg hover:bg-red-200 transition-colors">
+                                        Otomatis Tahan Berdasarkan AI
+                                    </button>
+                                    <button onclick="makeDecision('security', 'human')" class="w-full p-3 bg-green-100 text-green-800 rounded-lg hover:bg-green-200 transition-colors">
+                                        Petugas Verifikasi Manual
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="securityResult" class="bg-white p-4 rounded-lg">
+                                <p class="text-gray-600 text-center">Pilih keputusan untuk melihat analisis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kesimpulan Simulasi -->
+                <div id="simulationSummary" class="hidden bg-indigo-50 p-6 rounded-lg mt-6">
+                    <h3 class="text-xl font-semibold text-indigo-800 mb-4">📊 Kesimpulan Simulasi</h3>
+                    <div id="summaryContent" class="space-y-3">
+                        <!-- Akan diisi oleh JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Kuis -->
+        <div id="kuis" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    🎯 <span class="ml-3">Evaluasi Pembelajaran</span>
+                </h2>
+                
+                <div id="quizContainer" class="space-y-6">
+                    <div class="bg-purple-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-purple-800 mb-4">Pertanyaan <span id="currentQuestion">1</span> dari <span id="totalQuestions">8</span></h3>
+                        <div id="questionText" class="text-gray-800 mb-4 text-lg">
+                            Apa yang dimaksud dengan Kecerdasan Artifisial (AI)?
+                        </div>
+                        <div id="answerOptions" class="space-y-3">
+                            <button onclick="selectAnswer(0)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">
+                                A. Program komputer biasa yang mengikuti instruksi
+                            </button>
+                            <button onclick="selectAnswer(1)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">
+                                B. Teknologi yang memungkinkan komputer melakukan tugas yang memerlukan kecerdasan manusia
+                            </button>
+                            <button onclick="selectAnswer(2)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">
+                                C. Robot yang dapat bergerak sendiri
+                            </button>
+                            <button onclick="selectAnswer(3)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">
+                                D. Aplikasi untuk bermain game
+                            </button>
+                        </div>
+                        <div class="mt-6 flex justify-between">
+                            <button onclick="previousQuestion()" id="prevBtn" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors" disabled>
+                                ← Sebelumnya
+                            </button>
+                            <button onclick="nextQuestion()" id="nextBtn" class="px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                                Selanjutnya →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="quizResult" class="hidden bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Hasil Evaluasi</h3>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-green-600 mb-2" id="scoreDisplay">0/8</div>
+                            <p class="text-gray-700 mb-4" id="scoreMessage">Selamat! Anda telah menyelesaikan evaluasi.</p>
+                            <div id="detailedResults" class="text-left bg-white p-4 rounded-lg mb-4">
+                                <!-- Akan diisi hasil detail -->
+                            </div>
+                            <button onclick="restartQuiz()" class="px-6 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors">
+                                Ulangi Evaluasi
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-300" class="text-sm text-gray-400 mt-2">© 2025 Koding & AI Learning Platform. Pak Zunny ❤️ SMANDUNG</p>
+            
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('fade-in');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('border-purple-500', 'text-purple-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            event.target.classList.remove('border-transparent', 'text-gray-500');
+            event.target.classList.add('border-purple-500', 'text-purple-600');
+        }
+
+        // Pattern Recognition Simulation
+        function recognizeImage(type) {
+            const results = {
+                cat: {
+                    confidence: 94,
+                    process: "Mendeteksi telinga runcing, mata bulat, kumis → Klasifikasi: Kucing",
+                    time: "0.3 detik"
+                },
+                dog: {
+                    confidence: 89,
+                    process: "Mendeteksi moncong panjang, telinga menggantung → Klasifikasi: Anjing", 
+                    time: "0.4 detik"
+                },
+                car: {
+                    confidence: 96,
+                    process: "Mendeteksi roda, kaca depan, bentuk kendaraan → Klasifikasi: Mobil",
+                    time: "0.2 detik"
+                }
+            };
+            
+            const result = results[type];
+            document.getElementById('imageResult').innerHTML = `
+                <div class="text-left">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-medium text-gray-800">Hasil Pengenalan:</span>
+                        <span class="text-green-600 font-bold">${result.confidence}%</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-2">${result.process}</p>
+                    <p class="text-xs text-gray-500">Waktu proses: ${result.time}</p>
+                </div>
+            `;
+        }
+
+        function recognizeVoice(command) {
+            const results = {
+                hello: {
+                    response: "Halo! Ada yang bisa saya bantu?",
+                    process: "Audio → Teks → Pemahaman → Respons"
+                },
+                music: {
+                    response: "Memutar playlist favorit Anda...",
+                    process: "Perintah suara → Identifikasi intent → Eksekusi aksi"
+                },
+                weather: {
+                    response: "Cuaca hari ini cerah, suhu 28°C",
+                    process: "Pengenalan suara → Analisis konteks → Ambil data cuaca"
+                },
+                time: {
+                    response: "Sekarang pukul 14:30 WIB",
+                    process: "Konversi suara → Identifikasi pertanyaan → Berikan informasi"
+                }
+            };
+            
+            const result = results[command];
+            document.getElementById('voiceResult').innerHTML = `
+                <div class="text-left">
+                    <div class="bg-green-100 p-2 rounded mb-2">
+                        <span class="text-green-800 font-medium">AI: ${result.response}</span>
+                    </div>
+                    <p class="text-xs text-gray-500">Proses: ${result.process}</p>
+                </div>
+            `;
+        }
+
+        // Decision Making Simulation
+        let decisions = {};
+
+        function makeDecision(scenario, choice) {
+            decisions[scenario] = choice;
+            
+            const scenarios = {
+                autonomous: {
+                    ai: {
+                        result: "❌ Keputusan Bermasalah",
+                        explanation: "AI membuat keputusan hidup-mati tanpa konteks moral dan emosional yang kompleks. Manusia harus tetap bertanggung jawab dalam situasi etis seperti ini.",
+                        lesson: "Dalam situasi yang melibatkan nyawa manusia, keputusan tidak boleh sepenuhnya diserahkan pada AI."
+                    },
+                    human: {
+                        result: "✅ Keputusan Tepat", 
+                        explanation: "Manusia mengambil alih dalam situasi kritis yang memerlukan pertimbangan moral dan etis. AI dapat membantu analisis, tapi keputusan final tetap pada manusia.",
+                        lesson: "Kombinasi kecepatan AI dan kebijaksanaan manusia menghasilkan keputusan terbaik."
+                    }
+                },
+                medical: {
+                    ai: {
+                        result: "❌ Risiko Tinggi",
+                        explanation: "Meskipun AI akurat 95%, diagnosis medis memerlukan konfirmasi ahli. Kesalahan 5% bisa berakibat fatal pada nyawa pasien.",
+                        lesson: "AI medis harus selalu diverifikasi oleh tenaga medis profesional."
+                    },
+                    human: {
+                        result: "✅ Praktik Terbaik",
+                        explanation: "Dokter menggunakan AI sebagai alat bantu diagnosis, tapi tetap melakukan verifikasi dan pemeriksaan tambahan sebelum memberikan pengobatan.",
+                        lesson: "AI adalah alat bantu yang powerful, tapi tanggung jawab medis tetap pada dokter."
+                    }
+                },
+                security: {
+                    ai: {
+                        result: "❌ Potensi Pelanggaran HAM",
+                        explanation: "Menahan seseorang hanya berdasarkan AI tanpa verifikasi manusia dapat menyebabkan pelanggaran hak asasi dan diskriminasi.",
+                        lesson: "Keputusan yang berdampak pada kebebasan seseorang harus melibatkan verifikasi manusia."
+                    },
+                    human: {
+                        result: "✅ Keseimbangan Keamanan & HAM",
+                        explanation: "Petugas menggunakan AI sebagai early warning, tapi melakukan verifikasi manual untuk memastikan akurasi sebelum mengambil tindakan.",
+                        lesson: "AI membantu deteksi, tapi keputusan final yang berdampak pada individu harus diverifikasi manusia."
+                    }
+                }
+            };
+            
+            const scenarioData = scenarios[scenario][choice];
+            const resultElement = document.getElementById(scenario + 'Result');
+            
+            resultElement.innerHTML = `
+                <div class="space-y-3">
+                    <h4 class="font-medium ${choice === 'human' ? 'text-green-600' : 'text-red-600'}">${scenarioData.result}</h4>
+                    <p class="text-sm text-gray-700">${scenarioData.explanation}</p>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <p class="text-sm text-blue-800"><strong>Pelajaran:</strong> ${scenarioData.lesson}</p>
+                    </div>
+                </div>
+            `;
+            
+            // Check if all scenarios completed
+            if (Object.keys(decisions).length === 3) {
+                showSimulationSummary();
+            }
+        }
+
+        function showSimulationSummary() {
+            const humanDecisions = Object.values(decisions).filter(d => d === 'human').length;
+            const aiDecisions = Object.values(decisions).filter(d => d === 'ai').length;
+            
+            let summaryMessage = '';
+            if (humanDecisions === 3) {
+                summaryMessage = '🎉 Excellent! Anda memahami pentingnya tanggung jawab manusia dalam pengambilan keputusan AI.';
+            } else if (humanDecisions === 2) {
+                summaryMessage = '👍 Bagus! Anda sudah memahami sebagian besar prinsip etika AI.';
+            } else {
+                summaryMessage = '📚 Perlu belajar lebih lanjut tentang tanggung jawab etis dalam penggunaan AI.';
+            }
+            
+            document.getElementById('simulationSummary').classList.remove('hidden');
+            document.getElementById('summaryContent').innerHTML = `
+                <div class="text-center mb-4">
+                    <div class="text-2xl font-bold text-indigo-600">${humanDecisions}/3 Keputusan Etis</div>
+                    <p class="text-gray-700">${summaryMessage}</p>
+                </div>
+                <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-medium text-gray-800 mb-2">Prinsip Utama yang Dipelajari:</h4>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• Manusia harus bertanggung jawab atas keputusan AI</li>
+                        <li>• AI adalah alat bantu, bukan pengganti judgment manusia</li>
+                        <li>• Keputusan kritis memerlukan verifikasi dan supervisi manusia</li>
+                        <li>• Etika dan moral tidak dapat sepenuhnya diautomasi</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Quiz System
+        const quizData = [
+            {
+                question: "Apa yang dimaksud dengan Kecerdasan Artifisial (AI)?",
+                options: [
+                    "Program komputer biasa yang mengikuti instruksi",
+                    "Teknologi yang memungkinkan komputer melakukan tugas yang memerlukan kecerdasan manusia",
+                    "Robot yang dapat bergerak sendiri",
+                    "Aplikasi untuk bermain game"
+                ],
+                correct: 1,
+                explanation: "AI adalah teknologi yang memungkinkan komputer untuk melakukan tugas-tugas yang biasanya memerlukan kecerdasan manusia seperti pengenalan pola, pembelajaran, dan pengambilan keputusan."
+            },
+            {
+                question: "Bagaimana AI mengenali pola dalam gambar?",
+                options: [
+                    "Dengan menghafal semua gambar yang pernah dilihat",
+                    "Melalui proses preprocessing, feature extraction, dan pattern recognition",
+                    "Dengan menebak secara acak",
+                    "Hanya bisa mengenali gambar yang sudah diprogram"
+                ],
+                correct: 1,
+                explanation: "AI mengenali pola melalui tahapan sistematis: preprocessing (persiapan data), feature extraction (mengidentifikasi ciri), dan pattern recognition (mencocokkan pola)."
+            },
+            {
+                question: "Profesi mana yang TIDAK termasuk dalam bidang AI?",
+                options: [
+                    "Data Scientist",
+                    "AI Engineer", 
+                    "Tukang Bangunan Tradisional",
+                    "AI Product Manager"
+                ],
+                correct: 2,
+                explanation: "Tukang bangunan tradisional tidak termasuk profesi AI, meskipun konstruksi modern mulai menggunakan teknologi AI untuk optimasi."
+            },
+            {
+                question: "Mengapa manusia harus tetap bertanggung jawab atas keputusan AI?",
+                options: [
+                    "Karena AI selalu salah",
+                    "Karena AI tidak memiliki pertimbangan moral dan etis",
+                    "Karena AI terlalu lambat",
+                    "Karena AI terlalu mahal"
+                ],
+                correct: 1,
+                explanation: "Manusia harus bertanggung jawab karena AI tidak memiliki pertimbangan moral, etis, dan konteks sosial yang kompleks yang diperlukan untuk keputusan penting."
+            },
+            {
+                question: "Apa yang dimaksud dengan bias dalam AI?",
+                options: [
+                    "AI yang bekerja terlalu cepat",
+                    "AI yang mewarisi prasangka dari data pelatihan",
+                    "AI yang menggunakan terlalu banyak data",
+                    "AI yang tidak bisa belajar"
+                ],
+                correct: 1,
+                explanation: "Bias AI terjadi ketika sistem mewarisi prasangka atau ketidakadilan dari data pelatihan, menyebabkan diskriminasi terhadap kelompok tertentu."
+            },
+            {
+                question: "Dalam situasi medis kritis, bagaimana seharusnya AI digunakan?",
+                options: [
+                    "AI membuat semua keputusan sendiri",
+                    "AI sebagai alat bantu diagnosis yang harus diverifikasi dokter",
+                    "AI tidak boleh digunakan sama sekali",
+                    "AI hanya untuk administrasi"
+                ],
+                correct: 1,
+                explanation: "AI medis harus digunakan sebagai alat bantu yang powerful, tetapi diagnosis dan keputusan pengobatan final harus selalu diverifikasi dan diputuskan oleh tenaga medis profesional."
+            },
+            {
+                question: "Prinsip etika AI mana yang paling penting untuk transparansi?",
+                options: [
+                    "AI harus dapat dijelaskan cara kerjanya",
+                    "AI harus bekerja secara rahasia",
+                    "AI harus selalu benar",
+                    "AI harus murah"
+                ],
+                correct: 0,
+                explanation: "Transparansi mengharuskan AI dapat dijelaskan dan dipahami cara kerjanya (explainable AI) sehingga pengguna dapat memahami dasar keputusan yang dibuat."
+            },
+            {
+                question: "Kapan pengambilan keputusan TIDAK boleh sepenuhnya diserahkan pada AI?",
+                options: [
+                    "Saat memilih musik",
+                    "Saat keputusan berdampak pada nyawa manusia atau hak asasi",
+                    "Saat bermain game",
+                    "Saat mencari informasi di internet"
+                ],
+                correct: 1,
+                explanation: "Keputusan yang berdampak pada nyawa manusia, hak asasi, atau memiliki konsekuensi etis yang kompleks tidak boleh sepenuhnya diserahkan pada AI tanpa supervisi manusia."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        function loadQuestion() {
+            const question = quizData[currentQuestionIndex];
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('answerOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors';
+                button.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+                button.onclick = () => selectAnswer(index);
+                
+                if (userAnswers[currentQuestionIndex] === index) {
+                    button.classList.add('bg-purple-100', 'border-purple-400');
+                }
+                
+                optionsContainer.appendChild(button);
+            });
+            
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === quizData.length - 1 ? 'Selesai' : 'Selanjutnya →';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            document.querySelectorAll('.answer-btn').forEach((btn, index) => {
+                btn.classList.remove('bg-purple-100', 'border-purple-400');
+                if (index === answerIndex) {
+                    btn.classList.add('bg-purple-100', 'border-purple-400');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            score = 0;
+            let detailedResults = '';
+            
+            userAnswers.forEach((answer, index) => {
+                const question = quizData[index];
+                const isCorrect = answer === question.correct;
+                if (isCorrect) score++;
+                
+                detailedResults += `
+                    <div class="mb-4 p-3 rounded-lg ${isCorrect ? 'bg-green-50 border-l-4 border-green-400' : 'bg-red-50 border-l-4 border-red-400'}">
+                        <h5 class="font-medium ${isCorrect ? 'text-green-800' : 'text-red-800'} mb-1">
+                            ${isCorrect ? '✅' : '❌'} Pertanyaan ${index + 1}
+                        </h5>
+                        <p class="text-sm text-gray-700 mb-2">${question.question}</p>
+                        <p class="text-sm ${isCorrect ? 'text-green-700' : 'text-red-700'}">
+                            <strong>Jawaban Anda:</strong> ${question.options[answer] || 'Tidak dijawab'}
+                        </p>
+                        ${!isCorrect ? `<p class="text-sm text-green-700"><strong>Jawaban Benar:</strong> ${question.options[question.correct]}</p>` : ''}
+                        <p class="text-xs text-gray-600 mt-1">${question.explanation}</p>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('scoreDisplay').textContent = `${score}/${quizData.length}`;
+            document.getElementById('detailedResults').innerHTML = detailedResults;
+            
+            let message = '';
+            const percentage = (score / quizData.length) * 100;
+            if (percentage >= 90) {
+                message = 'Luar biasa! Anda sangat memahami literasi dan etika AI! 🎉';
+            } else if (percentage >= 75) {
+                message = 'Bagus sekali! Pemahaman Anda tentang AI sudah sangat baik! 👏';
+            } else if (percentage >= 60) {
+                message = 'Cukup baik! Masih ada beberapa konsep yang perlu diperdalam. 📚';
+            } else {
+                message = 'Perlu belajar lebih giat lagi tentang AI dan etikanya. Jangan menyerah! 💪';
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            loadQuestion();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestion();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9764baf9d4018956',t:'MTc1NjM5Mzc3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

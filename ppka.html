@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemanfaatan dan Pengembangan Kecerdasan Artifisial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .progress-bar { transition: width 0.5s ease; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">🤖 Kecerdasan Artifisial</h1>
+                <p class="text-xl opacity-90">Pemanfaatan dan Pengembangan AI untuk Masa Depan</p>
+                <div class="mt-6 bg-white/20 rounded-lg p-4 inline-block">
+                    <p class="text-sm">Kelas 10 Fase E • Pemanfaatan dan Pengembangan Kecerdasan Artifisial</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="showSection('overview')" class="nav-btn px-6 py-2 rounded-lg font-medium transition-colors bg-blue-600 text-white">Overview</button>
+                <button onclick="showSection('prompt')" class="nav-btn px-6 py-2 rounded-lg font-medium transition-colors text-gray-600 hover:bg-gray-100">Prompt Engineering</button>
+                <button onclick="showSection('design')" class="nav-btn px-6 py-2 rounded-lg font-medium transition-colors text-gray-600 hover:bg-gray-100">AI System Design</button>
+                <button onclick="showSection('practice')" class="nav-btn px-6 py-2 rounded-lg font-medium transition-colors text-gray-600 hover:bg-gray-100">Praktik</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-6 py-2">
+            <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                <span>Progress Pembelajaran</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="progress-bar bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="section-content fade-in">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Capaian Pembelajaran</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                            <div class="text-4xl mb-4">🎯</div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600">Prompt Engineering</h3>
+                            <p class="text-gray-600">Peserta didik mampu menerapkan teknik prompt engineering pada kecerdasan artifisial generatif untuk menghasilkan output yang optimal</p>
+                        </div>
+                        <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                            <div class="text-4xl mb-4">🏗️</div>
+                            <h3 class="text-xl font-semibold mb-3 text-purple-600">AI System Design</h3>
+                            <p class="text-gray-600">Peserta didik memahami AI system design melalui proses design thinking untuk merancang solusi berbasis AI</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Mengapa AI Penting?</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h4 class="font-semibold mb-2">Inovasi Masa Depan</h4>
+                        <p class="text-gray-600 text-sm">AI mengubah cara kita bekerja, belajar, dan berinteraksi dengan teknologi</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">💡</div>
+                        <h4 class="font-semibold mb-2">Pemecahan Masalah</h4>
+                        <p class="text-gray-600 text-sm">AI membantu menyelesaikan masalah kompleks dengan efisien dan akurat</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🌍</div>
+                        <h4 class="font-semibold mb-2">Dampak Global</h4>
+                        <p class="text-gray-600 text-sm">AI berperan dalam berbagai sektor: kesehatan, pendidikan, bisnis, dan lingkungan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prompt Engineering Section -->
+        <section id="prompt" class="section-content hidden">
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-blue-600">🎯 Prompt Engineering</h2>
+                <p class="text-lg text-gray-700 mb-6">Prompt Engineering adalah seni dan ilmu merancang instruksi yang efektif untuk AI generatif agar menghasilkan output yang diinginkan.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Prinsip Dasar Prompt</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">1</span>
+                                <div>
+                                    <strong>Jelas dan Spesifik:</strong> Berikan instruksi yang detail dan tidak ambigu
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">2</span>
+                                <div>
+                                    <strong>Konteks yang Relevan:</strong> Sertakan informasi latar belakang yang diperlukan
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-blue-100 text-blue-600 rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-0.5">3</span>
+                                <div>
+                                    <strong>Format Output:</strong> Tentukan format jawaban yang diinginkan
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4">Teknik Prompt</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-600">Zero-shot Prompting</h4>
+                                <p class="text-sm text-gray-600">Memberikan instruksi tanpa contoh</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-600">Few-shot Prompting</h4>
+                                <p class="text-sm text-gray-600">Memberikan beberapa contoh untuk panduan</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-600">Chain-of-Thought</h4>
+                                <p class="text-sm text-gray-600">Meminta AI menjelaskan proses berpikir</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">💡 Contoh Prompt yang Baik vs Buruk</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-red-50 border border-red-200 p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-600 mb-2">❌ Prompt Buruk</h4>
+                            <p class="text-sm italic">"Buatkan artikel tentang AI"</p>
+                            <p class="text-xs text-gray-600 mt-2">Terlalu umum dan tidak spesifik</p>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-600 mb-2">✅ Prompt Baik</h4>
+                            <p class="text-sm italic">"Buatkan artikel 500 kata tentang dampak AI dalam pendidikan untuk siswa SMA, dengan 3 poin utama dan contoh konkret"</p>
+                            <p class="text-xs text-gray-600 mt-2">Spesifik, jelas, dan terstruktur</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Prompt Builder -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-6">🛠️ Prompt Builder Interaktif</h3>
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Peran/Role:</label>
+                        <select id="role" class="w-full p-3 border rounded-lg">
+                            <option value="">Pilih peran...</option>
+                            <option value="Kamu adalah guru matematika yang berpengalaman">Guru Matematika</option>
+                            <option value="Kamu adalah penulis kreatif">Penulis Kreatif</option>
+                            <option value="Kamu adalah analis data">Analis Data</option>
+                            <option value="Kamu adalah konselor karir">Konselor Karir</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Tugas/Task:</label>
+                        <input type="text" id="task" placeholder="Contoh: Jelaskan konsep integral dengan mudah" class="w-full p-3 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Konteks:</label>
+                        <input type="text" id="context" placeholder="Contoh: untuk siswa SMA kelas 12" class="w-full p-3 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Format Output:</label>
+                        <select id="format" class="w-full p-3 border rounded-lg">
+                            <option value="">Pilih format...</option>
+                            <option value="dalam bentuk poin-poin">Poin-poin</option>
+                            <option value="dalam bentuk paragraf">Paragraf</option>
+                            <option value="dalam bentuk tabel">Tabel</option>
+                            <option value="dengan contoh konkret">Dengan Contoh</option>
+                        </select>
+                    </div>
+                    <button onclick="generatePrompt()" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Generate Prompt
+                    </button>
+                    <div id="generated-prompt" class="hidden mt-4 p-4 bg-gray-50 rounded-lg">
+                        <h4 class="font-semibold mb-2">Prompt yang Dihasilkan:</h4>
+                        <p id="prompt-result" class="text-sm bg-white p-3 rounded border italic"></p>
+                        <button onclick="copyPrompt()" class="mt-2 px-4 py-2 bg-green-600 text-white rounded text-sm hover:bg-green-700 transition-colors">
+                            📋 Copy Prompt
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI System Design Section -->
+        <section id="design" class="section-content hidden">
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-purple-600">🏗️ AI System Design</h2>
+                <p class="text-lg text-gray-700 mb-6">AI System Design adalah proses merancang sistem kecerdasan artifisial yang efektif menggunakan metodologi design thinking.</p>
+                
+                <div class="mb-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-center">Design Thinking Process</h3>
+                    <div class="grid md:grid-cols-5 gap-4">
+                        <div class="text-center p-4 bg-red-50 rounded-lg card-hover cursor-pointer" onclick="showDesignStep(1)">
+                            <div class="text-3xl mb-2">🔍</div>
+                            <h4 class="font-semibold text-red-600">Empathize</h4>
+                            <p class="text-xs text-gray-600 mt-1">Memahami pengguna</p>
+                        </div>
+                        <div class="text-center p-4 bg-orange-50 rounded-lg card-hover cursor-pointer" onclick="showDesignStep(2)">
+                            <div class="text-3xl mb-2">🎯</div>
+                            <h4 class="font-semibold text-orange-600">Define</h4>
+                            <p class="text-xs text-gray-600 mt-1">Definisi masalah</p>
+                        </div>
+                        <div class="text-center p-4 bg-yellow-50 rounded-lg card-hover cursor-pointer" onclick="showDesignStep(3)">
+                            <div class="text-3xl mb-2">💡</div>
+                            <h4 class="font-semibold text-yellow-600">Ideate</h4>
+                            <p class="text-xs text-gray-600 mt-1">Brainstorming ide</p>
+                        </div>
+                        <div class="text-center p-4 bg-green-50 rounded-lg card-hover cursor-pointer" onclick="showDesignStep(4)">
+                            <div class="text-3xl mb-2">🛠️</div>
+                            <h4 class="font-semibold text-green-600">Prototype</h4>
+                            <p class="text-xs text-gray-600 mt-1">Buat prototipe</p>
+                        </div>
+                        <div class="text-center p-4 bg-blue-50 rounded-lg card-hover cursor-pointer" onclick="showDesignStep(5)">
+                            <div class="text-3xl mb-2">🧪</div>
+                            <h4 class="font-semibold text-blue-600">Test</h4>
+                            <p class="text-xs text-gray-600 mt-1">Uji dan evaluasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="design-step-content" class="bg-gray-50 p-6 rounded-lg">
+                    <p class="text-center text-gray-500">Klik salah satu tahap di atas untuk melihat penjelasan detail</p>
+                </div>
+            </div>
+
+            <!-- AI System Components -->
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-6">🧩 Komponen Sistem AI</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-lg text-center card-hover">
+                        <div class="text-4xl mb-3">📊</div>
+                        <h4 class="font-semibold text-blue-600 mb-2">Data</h4>
+                        <p class="text-sm text-gray-600">Input dan training data untuk sistem AI</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-lg text-center card-hover">
+                        <div class="text-4xl mb-3">🧠</div>
+                        <h4 class="font-semibold text-green-600 mb-2">Model</h4>
+                        <p class="text-sm text-gray-600">Algoritma dan neural network</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-lg text-center card-hover">
+                        <div class="text-4xl mb-3">⚙️</div>
+                        <h4 class="font-semibold text-purple-600 mb-2">Processing</h4>
+                        <p class="text-sm text-gray-600">Pemrosesan dan komputasi</p>
+                    </div>
+                    <div class="bg-orange-50 p-6 rounded-lg text-center card-hover">
+                        <div class="text-4xl mb-3">📱</div>
+                        <h4 class="font-semibold text-orange-600 mb-2">Interface</h4>
+                        <p class="text-sm text-gray-600">User interface dan API</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section-content hidden">
+            <div class="bg-white rounded-xl p-8 shadow-lg mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-green-600">🎮 Praktik dan Latihan</h2>
+                
+                <!-- Quiz Section -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">📝 Kuis Pemahaman</h3>
+                    <div id="quiz-container" class="space-y-6">
+                        <div class="quiz-question bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-4">1. Apa yang dimaksud dengan Prompt Engineering?</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" value="a" class="mr-3">
+                                    <span>Teknik untuk memperbaiki hardware AI</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" value="b" class="mr-3">
+                                    <span>Seni merancang instruksi efektif untuk AI generatif</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q1" value="c" class="mr-3">
+                                    <span>Proses debugging kode AI</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="quiz-question bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-4">2. Tahap pertama dalam Design Thinking adalah:</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" value="a" class="mr-3">
+                                    <span>Define</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" value="b" class="mr-3">
+                                    <span>Empathize</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="q2" value="c" class="mr-3">
+                                    <span>Ideate</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button onclick="checkQuiz()" class="mt-6 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
+                        Periksa Jawaban
+                    </button>
+                    <div id="quiz-result" class="hidden mt-4 p-4 rounded-lg"></div>
+                </div>
+
+                <!-- Project Ideas -->
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">🚀 Ide Proyek</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-600 mb-2">Chatbot Sekolah</h4>
+                            <p class="text-sm text-gray-600 mb-3">Rancang chatbot untuk menjawab pertanyaan siswa tentang jadwal, tugas, dan informasi sekolah</p>
+                            <div class="text-xs text-gray-500">
+                                <span class="bg-purple-100 px-2 py-1 rounded">Prompt Engineering</span>
+                                <span class="bg-blue-100 px-2 py-1 rounded ml-1">Design Thinking</span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-600 mb-2">AI Tutor Matematika</h4>
+                            <p class="text-sm text-gray-600 mb-3">Buat sistem AI yang dapat membantu siswa memahami konsep matematika dengan penjelasan step-by-step</p>
+                            <div class="text-xs text-gray-500">
+                                <span class="bg-green-100 px-2 py-1 rounded">Educational AI</span>
+                                <span class="bg-orange-100 px-2 py-1 rounded ml-1">Interactive Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="mb-4" class="text-gray-400 text-sm">© 2025 Koding & AI Learning Platform. Pak Zunny ❤️ SMANDUNG</p>
+           
+        </div>
+    </footer>
+
+    <script>
+        let currentSection = 'overview';
+        let completedSections = new Set();
+
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('fade-in');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            
+            event.target.classList.add('bg-blue-600', 'text-white');
+            event.target.classList.remove('text-gray-600');
+            
+            currentSection = sectionId;
+            completedSections.add(sectionId);
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const totalSections = 4;
+            const progress = (completedSections.size / totalSections) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = Math.round(progress) + '%';
+        }
+
+        function generatePrompt() {
+            const role = document.getElementById('role').value;
+            const task = document.getElementById('task').value;
+            const context = document.getElementById('context').value;
+            const format = document.getElementById('format').value;
+
+            if (!role || !task) {
+                alert('Mohon isi minimal peran dan tugas!');
+                return;
+            }
+
+            let prompt = role + '. ';
+            prompt += task;
+            if (context) prompt += ' ' + context;
+            if (format) prompt += ' ' + format;
+            prompt += '.';
+
+            document.getElementById('prompt-result').textContent = prompt;
+            document.getElementById('generated-prompt').classList.remove('hidden');
+        }
+
+        function copyPrompt() {
+            const promptText = document.getElementById('prompt-result').textContent;
+            navigator.clipboard.writeText(promptText).then(() => {
+                alert('Prompt berhasil disalin!');
+            });
+        }
+
+        function showDesignStep(step) {
+            const content = document.getElementById('design-step-content');
+            const steps = {
+                1: {
+                    title: '🔍 Empathize - Memahami Pengguna',
+                    content: `
+                        <h4 class="font-semibold text-red-600 mb-3">Tahap Empathize</h4>
+                        <p class="mb-4">Pada tahap ini, kita berusaha memahami kebutuhan, masalah, dan pengalaman pengguna.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li>Lakukan wawancara dengan calon pengguna</li>
+                            <li>Observasi bagaimana mereka menyelesaikan masalah saat ini</li>
+                            <li>Identifikasi pain points dan frustrasi</li>
+                            <li>Pahami konteks penggunaan sistem AI</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-red-50 rounded">
+                            <strong>Contoh:</strong> Untuk AI tutor, pahami kesulitan siswa dalam belajar matematika
+                        </div>
+                    `
+                },
+                2: {
+                    title: '🎯 Define - Definisi Masalah',
+                    content: `
+                        <h4 class="font-semibold text-orange-600 mb-3">Tahap Define</h4>
+                        <p class="mb-4">Merumuskan masalah yang jelas berdasarkan insight dari tahap empathize.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li>Buat problem statement yang spesifik</li>
+                            <li>Definisikan target pengguna</li>
+                            <li>Tentukan tujuan sistem AI</li>
+                            <li>Identifikasi batasan dan kendala</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-orange-50 rounded">
+                            <strong>Contoh:</strong> "Siswa SMA membutuhkan bantuan personal dalam memahami konsep matematika kompleks"
+                        </div>
+                    `
+                },
+                3: {
+                    title: '💡 Ideate - Brainstorming Ide',
+                    content: `
+                        <h4 class="font-semibold text-yellow-600 mb-3">Tahap Ideate</h4>
+                        <p class="mb-4">Menghasilkan berbagai ide solusi kreatif untuk masalah yang telah didefinisikan.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li>Brainstorming tanpa batasan</li>
+                            <li>Eksplorasi berbagai pendekatan AI</li>
+                            <li>Pertimbangkan teknologi yang tersedia</li>
+                            <li>Evaluasi kelayakan ide</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-yellow-50 rounded">
+                            <strong>Contoh:</strong> Chatbot interaktif, sistem rekomendasi soal, visualisasi konsep 3D
+                        </div>
+                    `
+                },
+                4: {
+                    title: '🛠️ Prototype - Buat Prototipe',
+                    content: `
+                        <h4 class="font-semibold text-green-600 mb-3">Tahap Prototype</h4>
+                        <p class="mb-4">Membuat versi sederhana dari solusi untuk diuji dan dievaluasi.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li>Buat mockup atau wireframe</li>
+                            <li>Develop MVP (Minimum Viable Product)</li>
+                            <li>Implementasi fitur inti</li>
+                            <li>Siapkan untuk testing</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-green-50 rounded">
+                            <strong>Contoh:</strong> Chatbot sederhana yang bisa menjawab 5 jenis pertanyaan matematika
+                        </div>
+                    `
+                },
+                5: {
+                    title: '🧪 Test - Uji dan Evaluasi',
+                    content: `
+                        <h4 class="font-semibold text-blue-600 mb-3">Tahap Test</h4>
+                        <p class="mb-4">Menguji prototipe dengan pengguna nyata dan mengumpulkan feedback.</p>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li>User testing dengan target pengguna</li>
+                            <li>Kumpulkan feedback dan data usage</li>
+                            <li>Identifikasi area perbaikan</li>
+                            <li>Iterasi berdasarkan hasil test</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-blue-50 rounded">
+                            <strong>Contoh:</strong> Test dengan 10 siswa, analisis tingkat kepuasan dan efektivitas pembelajaran
+                        </div>
+                    `
+                }
+            };
+
+            content.innerHTML = steps[step].content;
+        }
+
+        function checkQuiz() {
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            
+            if (!q1 || !q2) {
+                alert('Mohon jawab semua pertanyaan!');
+                return;
+            }
+
+            let score = 0;
+            let feedback = [];
+
+            if (q1.value === 'b') {
+                score += 50;
+                feedback.push('✅ Pertanyaan 1: Benar! Prompt Engineering adalah seni merancang instruksi efektif untuk AI generatif.');
+            } else {
+                feedback.push('❌ Pertanyaan 1: Salah. Prompt Engineering adalah seni merancang instruksi efektif untuk AI generatif.');
+            }
+
+            if (q2.value === 'b') {
+                score += 50;
+                feedback.push('✅ Pertanyaan 2: Benar! Empathize adalah tahap pertama dalam Design Thinking.');
+            } else {
+                feedback.push('❌ Pertanyaan 2: Salah. Empathize adalah tahap pertama dalam Design Thinking.');
+            }
+
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.classList.remove('hidden');
+            
+            if (score >= 80) {
+                resultDiv.className = 'mt-4 p-4 rounded-lg bg-green-50 border border-green-200';
+                resultDiv.innerHTML = `
+                    <h4 class="font-semibold text-green-600 mb-2">🎉 Excellent! Skor: ${score}/100</h4>
+                    <div class="text-sm space-y-1">${feedback.join('<br>')}</div>
+                `;
+            } else if (score >= 50) {
+                resultDiv.className = 'mt-4 p-4 rounded-lg bg-yellow-50 border border-yellow-200';
+                resultDiv.innerHTML = `
+                    <h4 class="font-semibold text-yellow-600 mb-2">👍 Good! Skor: ${score}/100</h4>
+                    <div class="text-sm space-y-1">${feedback.join('<br>')}</div>
+                `;
+            } else {
+                resultDiv.className = 'mt-4 p-4 rounded-lg bg-red-50 border border-red-200';
+                resultDiv.innerHTML = `
+                    <h4 class="font-semibold text-red-600 mb-2">📚 Perlu Belajar Lagi! Skor: ${score}/100</h4>
+                    <div class="text-sm space-y-1">${feedback.join('<br>')}</div>
+                `;
+            }
+
+            completedSections.add('practice');
+            updateProgress();
+        }
+
+        // Initialize
+        updateProgress();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9764d36571e7f8fa',t:'MTc1NjM5NDc3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

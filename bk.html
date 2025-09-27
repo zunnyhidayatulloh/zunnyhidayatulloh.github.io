@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berpikir Komputasional - Media Pembelajaran</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .step-active { background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); }
+        .step-inactive { background: #e5e7eb; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .pulse-animation { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">🧠 Berpikir Komputasional</h1>
+                <p class="text-xl opacity-90">Memecahkan Masalah Kompleks dengan Cara yang Sistematis</p>
+                <p class="text-lg opacity-80 mt-2">Kelas 10 - Fase E | Kecerdasan Artifisial</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="showSection('intro')" class="nav-btn px-6 py-2 rounded-full font-medium transition-all duration-300 bg-indigo-600 text-white">Pengenalan</button>
+                <button onclick="showSection('elements')" class="nav-btn px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-gray-100">4 Elemen</button>
+                <button onclick="showSection('practice')" class="nav-btn px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-gray-100">Latihan</button>
+                <button onclick="showSection('quiz')" class="nav-btn px-6 py-2 rounded-full font-medium transition-all duration-300 text-gray-600 hover:bg-gray-100">Kuis</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Pengenalan Section -->
+        <section id="intro" class="section-content">
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">🎯 Apa itu Berpikir Komputasional?</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-4">
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Berpikir Komputasional adalah cara berpikir yang menggunakan konsep-konsep dari ilmu komputer untuk memecahkan masalah kompleks dalam kehidupan sehari-hari.
+                        </p>
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <h3 class="font-semibold text-blue-800 mb-3">💡 Mengapa Penting?</h3>
+                            <ul class="space-y-2 text-blue-700">
+                                <li>• Membantu memecahkan masalah secara sistematis</li>
+                                <li>• Meningkatkan kemampuan berpikir logis</li>
+                                <li>• Berguna di berbagai bidang kehidupan</li>
+                                <li>• Persiapan untuk era digital</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-100 to-blue-100 p-6 rounded-xl">
+                        <h3 class="font-semibold text-purple-800 mb-4">🌟 Contoh Penerapan</h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <strong>Memasak:</strong> Mengikuti resep step-by-step
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <strong>Navigasi:</strong> Mencari rute tercepat ke sekolah
+                            </div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm">
+                                <strong>Belajar:</strong> Membuat jadwal belajar yang efektif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button onclick="showSection('elements')" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 pulse-animation">
+                        Pelajari 4 Elemen Utama →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 Elemen Section -->
+        <section id="elements" class="section-content hidden">
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">🔧 4 Elemen Berpikir Komputasional</h2>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- Dekomposisi -->
+                    <div class="element-card bg-red-50 border-2 border-red-200 rounded-xl p-6 card-hover cursor-pointer" onclick="showElementDetail('decomposition')">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🧩</div>
+                            <h3 class="text-xl font-bold text-red-800">Dekomposisi</h3>
+                        </div>
+                        <p class="text-red-700 text-center">Memecah masalah besar menjadi bagian-bagian kecil yang lebih mudah diselesaikan</p>
+                    </div>
+
+                    <!-- Pengenalan Pola -->
+                    <div class="element-card bg-blue-50 border-2 border-blue-200 rounded-xl p-6 card-hover cursor-pointer" onclick="showElementDetail('pattern')">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🔍</div>
+                            <h3 class="text-xl font-bold text-blue-800">Pengenalan Pola</h3>
+                        </div>
+                        <p class="text-blue-700 text-center">Mencari kesamaan atau pola dalam masalah untuk menemukan solusi yang efisien</p>
+                    </div>
+
+                    <!-- Abstraksi -->
+                    <div class="element-card bg-green-50 border-2 border-green-200 rounded-xl p-6 card-hover cursor-pointer" onclick="showElementDetail('abstraction')">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🎯</div>
+                            <h3 class="text-xl font-bold text-green-800">Abstraksi</h3>
+                        </div>
+                        <p class="text-green-700 text-center">Fokus pada informasi penting dan mengabaikan detail yang tidak relevan</p>
+                    </div>
+
+                    <!-- Algoritma -->
+                    <div class="element-card bg-purple-50 border-2 border-purple-200 rounded-xl p-6 card-hover cursor-pointer" onclick="showElementDetail('algorithm')">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">📋</div>
+                            <h3 class="text-xl font-bold text-purple-800">Algoritma</h3>
+                        </div>
+                        <p class="text-purple-700 text-center">Membuat langkah-langkah sistematis untuk menyelesaikan masalah</p>
+                    </div>
+                </div>
+
+                <!-- Detail Element (Hidden by default) -->
+                <div id="element-detail" class="hidden fade-in">
+                    <div class="bg-gray-50 rounded-xl p-6">
+                        <div id="detail-content"></div>
+                        <button onclick="hideElementDetail()" class="mt-4 bg-gray-600 hover:bg-gray-700 text-white px-6 py-2 rounded-full transition-all duration-300">
+                            Tutup Detail
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latihan Section -->
+        <section id="practice" class="section-content hidden">
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">🎮 Latihan Interaktif</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Studi Kasus: Merencanakan Acara Sekolah</h3>
+                    <div class="bg-yellow-50 p-6 rounded-xl mb-6">
+                        <p class="text-lg text-gray-700">
+                            <strong>Masalah:</strong> Kamu ditugaskan untuk merencanakan acara pentas seni sekolah. 
+                            Acara ini melibatkan 500 siswa, 20 guru, dan 100 orang tua. 
+                            Bagaimana cara menerapkan berpikir komputasional untuk menyelesaikan tugas ini?
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Interactive Steps -->
+                <div class="space-y-6">
+                    <div class="step-container">
+                        <div class="flex items-center mb-4">
+                            <div id="step1-indicator" class="w-8 h-8 rounded-full step-inactive flex items-center justify-center text-white font-bold mr-4">1</div>
+                            <h4 class="text-lg font-semibold">Langkah 1: Dekomposisi</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="mb-4">Pecah masalah besar menjadi bagian-bagian kecil:</p>
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="decomp-item bg-gray-100 p-4 rounded-lg cursor-pointer hover:bg-red-100 transition-all duration-300" onclick="selectDecomp(this, 'venue')">
+                                    📍 Pemilihan dan persiapan tempat
+                                </div>
+                                <div class="decomp-item bg-gray-100 p-4 rounded-lg cursor-pointer hover:bg-red-100 transition-all duration-300" onclick="selectDecomp(this, 'program')">
+                                    🎭 Penyusunan program acara
+                                </div>
+                                <div class="decomp-item bg-gray-100 p-4 rounded-lg cursor-pointer hover:bg-red-100 transition-all duration-300" onclick="selectDecomp(this, 'logistics')">
+                                    📦 Logistik dan perlengkapan
+                                </div>
+                                <div class="decomp-item bg-gray-100 p-4 rounded-lg cursor-pointer hover:bg-red-100 transition-all duration-300" onclick="selectDecomp(this, 'promotion')">
+                                    📢 Promosi dan undangan
+                                </div>
+                            </div>
+                            <button id="step1-next" class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-full transition-all duration-300 opacity-50 cursor-not-allowed" disabled onclick="nextStep(2)">
+                                Lanjut ke Langkah 2
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="step2" class="step-container hidden">
+                        <div class="flex items-center mb-4">
+                            <div id="step2-indicator" class="w-8 h-8 rounded-full step-inactive flex items-center justify-center text-white font-bold mr-4">2</div>
+                            <h4 class="text-lg font-semibold">Langkah 2: Pengenalan Pola</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="mb-4">Cari pola dari acara-acara sebelumnya:</p>
+                            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                                <h5 class="font-semibold mb-2">Pola yang ditemukan:</h5>
+                                <ul class="space-y-2">
+                                    <li>✅ Acara sukses biasanya dimulai persiapan 2 bulan sebelumnya</li>
+                                    <li>✅ Pembagian tugas ke 5-7 tim kerja lebih efektif</li>
+                                    <li>✅ Rehearsal 2 kali mengurangi kesalahan saat acara</li>
+                                    <li>✅ Buffer waktu 30 menit antar sesi mencegah keterlambatan</li>
+                                </ul>
+                            </div>
+                            <button onclick="nextStep(3)" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full transition-all duration-300">
+                                Lanjut ke Langkah 3
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="step3" class="step-container hidden">
+                        <div class="flex items-center mb-4">
+                            <div id="step3-indicator" class="w-8 h-8 rounded-full step-inactive flex items-center justify-center text-white font-bold mr-4">3</div>
+                            <h4 class="text-lg font-semibold">Langkah 3: Abstraksi</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="mb-4">Fokus pada hal-hal penting, abaikan detail yang tidak relevan:</p>
+                            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-green-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-green-800 mb-2">🎯 Fokus Utama:</h5>
+                                    <ul class="text-green-700 space-y-1">
+                                        <li>• Keamanan peserta</li>
+                                        <li>• Kualitas pertunjukan</li>
+                                        <li>• Ketepatan waktu</li>
+                                        <li>• Anggaran</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-gray-600 mb-2">⏭️ Detail Diabaikan:</h5>
+                                    <ul class="text-gray-600 space-y-1">
+                                        <li>• Warna kostum spesifik</li>
+                                        <li>• Merek peralatan</li>
+                                        <li>• Dekorasi detail</li>
+                                        <li>• Menu snack khusus</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button onclick="nextStep(4)" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-full transition-all duration-300">
+                                Lanjut ke Langkah 4
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="step4" class="step-container hidden">
+                        <div class="flex items-center mb-4">
+                            <div id="step4-indicator" class="w-8 h-8 rounded-full step-inactive flex items-center justify-center text-white font-bold mr-4">4</div>
+                            <h4 class="text-lg font-semibold">Langkah 4: Algoritma</h4>
+                        </div>
+                        <div class="ml-12">
+                            <p class="mb-4">Buat langkah-langkah sistematis:</p>
+                            <div class="bg-purple-50 p-6 rounded-lg mb-4">
+                                <h5 class="font-semibold text-purple-800 mb-3">📋 Timeline Algoritma:</h5>
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">1</div>
+                                        <span>Minggu 1-2: Bentuk tim dan bagi tugas</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">2</div>
+                                        <span>Minggu 3-4: Siapkan tempat dan logistik</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">3</div>
+                                        <span>Minggu 5-6: Latihan dan rehearsal</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">4</div>
+                                        <span>Minggu 7-8: Promosi dan persiapan final</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-6 h-6 bg-purple-600 text-white rounded-full flex items-center justify-center text-sm">5</div>
+                                        <span>Hari H: Eksekusi acara</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <button onclick="showPracticeResult()" class="bg-purple-600 hover:bg-purple-700 text-white px-8 py-3 rounded-full transition-all duration-300 pulse-animation">
+                                    🎉 Lihat Hasil Lengkap
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Practice Result -->
+                <div id="practice-result" class="hidden mt-8 fade-in">
+                    <div class="bg-gradient-to-r from-green-400 to-blue-500 text-white p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4">🎊 Selamat! Kamu telah menerapkan Berpikir Komputasional!</h3>
+                        <p class="mb-4">Dengan menggunakan 4 elemen berpikir komputasional, kamu berhasil membuat rencana sistematis untuk acara sekolah yang kompleks.</p>
+                        <div class="text-center">
+                            <button onclick="showSection('quiz')" class="bg-white text-blue-600 px-6 py-2 rounded-full font-medium hover:bg-gray-100 transition-all duration-300">
+                                Uji Pemahaman dengan Kuis →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz" class="section-content hidden">
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">📝 Kuis Pemahaman</h2>
+                
+                <div id="quiz-container">
+                    <div class="quiz-question mb-8">
+                        <div class="bg-blue-50 p-6 rounded-xl mb-6">
+                            <h3 class="text-lg font-semibold mb-4">Pertanyaan <span id="question-number">1</span> dari 5</h3>
+                            <p id="question-text" class="text-gray-700 text-lg"></p>
+                        </div>
+                        
+                        <div id="quiz-options" class="space-y-3 mb-6">
+                            <!-- Options will be populated by JavaScript -->
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <div id="quiz-feedback" class="text-sm"></div>
+                            <button id="quiz-next" class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2 rounded-full transition-all duration-300 opacity-50 cursor-not-allowed" disabled onclick="nextQuestion()">
+                                Pertanyaan Selanjutnya
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quiz Result -->
+                <div id="quiz-result" class="hidden text-center">
+                    <div class="bg-gradient-to-r from-purple-400 to-pink-400 text-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4">🏆 Hasil Kuis</h3>
+                        <div class="text-4xl font-bold mb-4" id="final-score"></div>
+                        <p class="text-lg mb-6" id="score-message"></p>
+                        <button onclick="resetQuiz()" class="bg-white text-purple-600 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition-all duration-300">
+                            Ulangi Kuis
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-xl font-semibold mb-4">🎓 Media Pembelajaran Berpikir Komputasional</h3>
+            <p class="text-gray-300 mb-4">Kelas 10 Fase E - Kecerdasan Artifisial</p>
+            <p class="text-sm text-gray-400">Dikembangkan untuk membantu siswa memahami konsep berpikir komputasional dalam memecahkan masalah kompleks</p>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedDecompItems = [];
+
+        // Quiz questions
+        const quizQuestions = [
+            {
+                question: "Apa yang dimaksud dengan Dekomposisi dalam berpikir komputasional?",
+                options: [
+                    "Menghapus bagian yang tidak penting dari masalah",
+                    "Memecah masalah besar menjadi bagian-bagian kecil",
+                    "Mencari pola dalam data",
+                    "Membuat langkah-langkah penyelesaian"
+                ],
+                correct: 1,
+                explanation: "Dekomposisi adalah proses memecah masalah kompleks menjadi sub-masalah yang lebih kecil dan mudah dikelola."
+            },
+            {
+                question: "Manakah contoh penerapan Pengenalan Pola yang tepat?",
+                options: [
+                    "Membagi tugas proyek menjadi beberapa bagian",
+                    "Mengabaikan detail yang tidak penting",
+                    "Melihat kesamaan cara belajar yang efektif dari teman-teman",
+                    "Membuat jadwal harian yang terstruktur"
+                ],
+                correct: 2,
+                explanation: "Pengenalan pola melibatkan identifikasi kesamaan atau tren yang dapat membantu dalam pemecahan masalah."
+            },
+            {
+                question: "Dalam konteks merencanakan liburan, manakah yang merupakan contoh Abstraksi?",
+                options: [
+                    "Menentukan tanggal keberangkatan yang spesifik",
+                    "Fokus pada anggaran, destinasi, dan durasi; mengabaikan detail warna koper",
+                    "Membuat daftar semua barang yang akan dibawa",
+                    "Mencari pola harga tiket di berbagai hari"
+                ],
+                correct: 1,
+                explanation: "Abstraksi adalah fokus pada informasi penting sambil mengabaikan detail yang tidak relevan untuk pemecahan masalah utama."
+            },
+            {
+                question: "Algoritma yang baik harus memiliki karakteristik:",
+                options: [
+                    "Rumit dan detail",
+                    "Jelas, berurutan, dan dapat diikuti",
+                    "Fleksibel tanpa urutan tertentu",
+                    "Hanya bisa dipahami oleh ahli"
+                ],
+                correct: 1,
+                explanation: "Algoritma yang baik harus jelas, sistematis, dan dapat diikuti langkah demi langkah untuk mencapai solusi."
+            },
+            {
+                question: "Seorang siswa ingin meningkatkan nilai matematika. Urutan penerapan berpikir komputasional yang tepat adalah:",
+                options: [
+                    "Algoritma → Dekomposisi → Pola → Abstraksi",
+                    "Dekomposisi → Pola → Abstraksi → Algoritma",
+                    "Pola → Abstraksi → Dekomposisi → Algoritma",
+                    "Abstraksi → Algoritma → Dekomposisi → Pola"
+                ],
+                correct: 1,
+                explanation: "Urutan yang logis: pecah masalah (Dekomposisi), cari pola keberhasilan (Pola), fokus pada hal penting (Abstraksi), buat rencana sistematis (Algoritma)."
+            }
+        ];
+
+        // Element details
+        const elementDetails = {
+            decomposition: {
+                title: "🧩 Dekomposisi",
+                content: `
+                    <h4 class="text-xl font-bold text-red-800 mb-4">Memecah Masalah Besar</h4>
+                    <p class="text-gray-700 mb-4">Dekomposisi adalah proses memecah masalah kompleks menjadi sub-masalah yang lebih kecil dan mudah dikelola.</p>
+                    
+                    <div class="bg-red-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-semibold mb-2">Contoh Nyata:</h5>
+                        <p><strong>Masalah:</strong> Membersihkan kamar yang berantakan</p>
+                        <p><strong>Dekomposisi:</strong></p>
+                        <ul class="list-disc ml-6 mt-2">
+                            <li>Rapikan tempat tidur</li>
+                            <li>Kumpulkan pakaian kotor</li>
+                            <li>Susun buku-buku</li>
+                            <li>Buang sampah</li>
+                            <li>Sapu dan pel lantai</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h5 class="font-semibold mb-2">💡 Tips Dekomposisi:</h5>
+                        <ul class="list-disc ml-6">
+                            <li>Mulai dengan gambaran besar</li>
+                            <li>Pecah menjadi 3-7 bagian utama</li>
+                            <li>Pastikan setiap bagian dapat diselesaikan sendiri</li>
+                            <li>Urutkan berdasarkan prioritas atau ketergantungan</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pattern: {
+                title: "🔍 Pengenalan Pola",
+                content: `
+                    <h4 class="text-xl font-bold text-blue-800 mb-4">Mencari Kesamaan dan Tren</h4>
+                    <p class="text-gray-700 mb-4">Pengenalan pola membantu kita mengidentifikasi kesamaan dalam masalah yang berbeda untuk menemukan solusi yang efisien.</p>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-semibold mb-2">Contoh Nyata:</h5>
+                        <p><strong>Situasi:</strong> Kesulitan mengingat pelajaran</p>
+                        <p><strong>Pola yang ditemukan:</strong></p>
+                        <ul class="list-disc ml-6 mt-2">
+                            <li>Belajar pagi hari lebih efektif</li>
+                            <li>Membuat catatan dengan warna membantu ingatan</li>
+                            <li>Diskusi dengan teman meningkatkan pemahaman</li>
+                            <li>Istirahat 10 menit setiap 45 menit belajar optimal</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h5 class="font-semibold mb-2">🎯 Cara Mengenali Pola:</h5>
+                        <ul class="list-disc ml-6">
+                            <li>Amati situasi yang berulang</li>
+                            <li>Catat apa yang berhasil dan tidak berhasil</li>
+                            <li>Bandingkan dengan pengalaman orang lain</li>
+                            <li>Cari kesamaan dalam masalah yang berbeda</li>
+                        </ul>
+                    </div>
+                `
+            },
+            abstraction: {
+                title: "🎯 Abstraksi",
+                content: `
+                    <h4 class="text-xl font-bold text-green-800 mb-4">Fokus pada Hal Penting</h4>
+                    <p class="text-gray-700 mb-4">Abstraksi adalah kemampuan untuk fokus pada informasi yang relevan sambil mengabaikan detail yang tidak penting.</p>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-semibold mb-2">Contoh Nyata:</h5>
+                        <p><strong>Situasi:</strong> Memilih universitas</p>
+                        <div class="grid md:grid-cols-2 gap-4 mt-2">
+                            <div>
+                                <p><strong>Fokus Utama:</strong></p>
+                                <ul class="list-disc ml-6">
+                                    <li>Kualitas program studi</li>
+                                    <li>Biaya kuliah</li>
+                                    <li>Lokasi</li>
+                                    <li>Prospek karir</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p><strong>Detail Diabaikan:</strong></p>
+                                <ul class="list-disc ml-6">
+                                    <li>Warna seragam</li>
+                                    <li>Arsitektur gedung</li>
+                                    <li>Menu kantin</li>
+                                    <li>Nama jalan kampus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h5 class="font-semibold mb-2">✨ Manfaat Abstraksi:</h5>
+                        <ul class="list-disc ml-6">
+                            <li>Mengurangi kompleksitas masalah</li>
+                            <li>Mempercepat pengambilan keputusan</li>
+                            <li>Menghindari informasi yang membingungkan</li>
+                            <li>Fokus pada solusi yang efektif</li>
+                        </ul>
+                    </div>
+                `
+            },
+            algorithm: {
+                title: "📋 Algoritma",
+                content: `
+                    <h4 class="text-xl font-bold text-purple-800 mb-4">Langkah Sistematis Menuju Solusi</h4>
+                    <p class="text-gray-700 mb-4">Algoritma adalah serangkaian langkah yang jelas dan berurutan untuk menyelesaikan masalah atau mencapai tujuan.</p>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <h5 class="font-semibold mb-2">Contoh Nyata:</h5>
+                        <p><strong>Tujuan:</strong> Membuat mie instan</p>
+                        <p><strong>Algoritma:</strong></p>
+                        <ol class="list-decimal ml-6 mt-2">
+                            <li>Siapkan 400ml air</li>
+                            <li>Didihkan air dalam panci</li>
+                            <li>Masukkan mie ke air mendidih</li>
+                            <li>Masak selama 3 menit</li>
+                            <li>Tambahkan bumbu</li>
+                            <li>Aduk rata</li>
+                            <li>Sajikan selagi hangat</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h5 class="font-semibold mb-2">📏 Ciri Algoritma yang Baik:</h5>
+                        <ul class="list-disc ml-6">
+                            <li><strong>Jelas:</strong> Setiap langkah mudah dipahami</li>
+                            <li><strong>Berurutan:</strong> Ada urutan logis yang harus diikuti</li>
+                            <li><strong>Terbatas:</strong> Memiliki titik awal dan akhir yang jelas</li>
+                            <li><strong>Efektif:</strong> Menghasilkan solusi yang diinginkan</li>
+                            <li><strong>Dapat diulang:</strong> Memberikan hasil yang sama jika diulang</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // Navigation functions
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('fade-in');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            
+            event.target.classList.add('bg-indigo-600', 'text-white');
+            event.target.classList.remove('text-gray-600');
+            
+            // Reset quiz if switching to quiz section
+            if (sectionId === 'quiz') {
+                resetQuiz();
+            }
+        }
+
+        // Element detail functions
+        function showElementDetail(elementType) {
+            const detail = elementDetails[elementType];
+            document.getElementById('detail-content').innerHTML = detail.content;
+            document.getElementById('element-detail').classList.remove('hidden');
+            document.getElementById('element-detail').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function hideElementDetail() {
+            document.getElementById('element-detail').classList.add('hidden');
+        }
+
+        // Practice functions
+        function selectDecomp(element, type) {
+            element.classList.toggle('bg-red-100');
+            element.classList.toggle('bg-gray-100');
+            
+            if (element.classList.contains('bg-red-100')) {
+                if (!selectedDecompItems.includes(type)) {
+                    selectedDecompItems.push(type);
+                }
+            } else {
+                selectedDecompItems = selectedDecompItems.filter(item => item !== type);
+            }
+            
+            // Enable next button if at least 3 items selected
+            const nextBtn = document.getElementById('step1-next');
+            if (selectedDecompItems.length >= 3) {
+                nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                nextBtn.disabled = false;
+                nextBtn.classList.add('hover:bg-red-700');
+            } else {
+                nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                nextBtn.disabled = true;
+                nextBtn.classList.remove('hover:bg-red-700');
+            }
+        }
+
+        function nextStep(stepNumber) {
+            // Update previous step indicator
+            const prevIndicator = document.getElementById(`step${stepNumber-1}-indicator`);
+            prevIndicator.classList.remove('step-inactive');
+            prevIndicator.classList.add('step-active');
+            
+            // Show next step
+            document.getElementById(`step${stepNumber}`).classList.remove('hidden');
+            document.getElementById(`step${stepNumber}`).scrollIntoView({ behavior: 'smooth' });
+            
+            // Update current step indicator
+            const currentIndicator = document.getElementById(`step${stepNumber}-indicator`);
+            currentIndicator.classList.remove('step-inactive');
+            currentIndicator.classList.add('step-active');
+        }
+
+        function showPracticeResult() {
+            // Update final step indicator
+            document.getElementById('step4-indicator').classList.remove('step-inactive');
+            document.getElementById('step4-indicator').classList.add('step-active');
+            
+            // Show result
+            document.getElementById('practice-result').classList.remove('hidden');
+            document.getElementById('practice-result').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Quiz functions
+        function loadQuestion() {
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('question-number').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'quiz-option bg-gray-50 p-4 rounded-lg cursor-pointer hover:bg-blue-50 transition-all duration-300';
+                optionElement.innerHTML = `
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="quiz-answer" value="${index}" class="mr-3">
+                        <span>${option}</span>
+                    </label>
+                `;
+                optionsContainer.appendChild(optionElement);
+                
+                optionElement.addEventListener('click', () => selectQuizOption(index));
+            });
+            
+            // Reset feedback and next button
+            document.getElementById('quiz-feedback').innerHTML = '';
+            const nextBtn = document.getElementById('quiz-next');
+            nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            nextBtn.disabled = true;
+        }
+
+        function selectQuizOption(selectedIndex) {
+            const question = quizQuestions[currentQuestionIndex];
+            const options = document.querySelectorAll('.quiz-option');
+            const feedback = document.getElementById('quiz-feedback');
+            const nextBtn = document.getElementById('quiz-next');
+            
+            // Clear previous selections
+            options.forEach(option => {
+                option.classList.remove('bg-green-100', 'bg-red-100', 'border-green-500', 'border-red-500');
+                option.classList.add('bg-gray-50');
+            });
+            
+            // Check answer
+            if (selectedIndex === question.correct) {
+                options[selectedIndex].classList.remove('bg-gray-50');
+                options[selectedIndex].classList.add('bg-green-100', 'border-green-500');
+                feedback.innerHTML = `<div class="text-green-600">✅ Benar! ${question.explanation}</div>`;
+                quizScore++;
+            } else {
+                options[selectedIndex].classList.remove('bg-gray-50');
+                options[selectedIndex].classList.add('bg-red-100', 'border-red-500');
+                options[question.correct].classList.remove('bg-gray-50');
+                options[question.correct].classList.add('bg-green-100', 'border-green-500');
+                feedback.innerHTML = `<div class="text-red-600">❌ Salah. ${question.explanation}</div>`;
+            }
+            
+            // Enable next button
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            nextBtn.disabled = false;
+            
+            if (currentQuestionIndex === quizQuestions.length - 1) {
+                nextBtn.textContent = 'Lihat Hasil';
+                nextBtn.onclick = showQuizResult;
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < quizQuestions.length) {
+                loadQuestion();
+            } else {
+                showQuizResult();
+            }
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            document.getElementById('final-score').textContent = `${quizScore}/${quizQuestions.length} (${percentage}%)`;
+            
+            let message = '';
+            if (percentage >= 80) {
+                message = '🌟 Luar biasa! Kamu sudah memahami berpikir komputasional dengan sangat baik!';
+            } else if (percentage >= 60) {
+                message = '👍 Bagus! Kamu sudah memahami konsep dasar. Terus berlatih!';
+            } else {
+                message = '💪 Jangan menyerah! Coba pelajari materi lagi dan ulangi kuis.';
+            }
+            
+            document.getElementById('score-message').textContent = message;
+        }
+
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('quiz-next').textContent = 'Pertanyaan Selanjutnya';
+            document.getElementById('quiz-next').onclick = nextQuestion;
+            loadQuestion();
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestion();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97636f051560fd75',t:'MTc1NjM4MDE3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

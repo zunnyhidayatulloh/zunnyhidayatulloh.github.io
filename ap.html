@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritma & Pemrograman - Kelas 10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .code-font { font-family: 'JetBrains Mono', monospace; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .progress-bar { transition: width 0.5s ease; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .code-block { background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 1rem; overflow-x: auto; }
+        .algorithm-step { transition: all 0.3s ease; }
+        .algorithm-step.active { background-color: #dbeafe; border-left: 4px solid #3b82f6; }
+        .complexity-good { color: #059669; }
+        .complexity-medium { color: #d97706; }
+        .complexity-bad { color: #dc2626; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">💻 Algoritma & Pemrograman</h1>
+                <p class="text-xl opacity-90">Kelas 10 - Fase E | Computational Thinking</p>
+                <div class="mt-4 bg-white/20 rounded-full px-6 py-2 inline-block">
+                    <span class="text-sm font-medium">🎯 Capaian: Membandingkan algoritma & membuat aplikasi</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="showSection('overview')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-100 text-blue-700">📋 Overview</button>
+                <button onclick="showSection('theory')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">📚 Teori</button>
+                <button onclick="showSection('algorithms')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">🔍 Algoritma</button>
+                <button onclick="showSection('programming')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">💻 Pemrograman</button>
+                <button onclick="showSection('projects')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">🚀 Proyek</button>
+                <button onclick="showSection('assessment')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">📊 Evaluasi</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                <span>Progress Pembelajaran</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="progress-bar bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="section-content fade-in">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">🎯 Tujuan Pembelajaran</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Memahami konsep dasar algoritma dan flowchart</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Membandingkan efisiensi berbagai algoritma</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Menguasai dasar-dasar pemrograman Python</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Membuat aplikasi sederhana dengan Python</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">📋 Kompetensi Inti</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Algoritma</h3>
+                            <p class="text-gray-600 text-sm">Memahami dan membandingkan berbagai algoritma</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Pemrograman</h3>
+                            <p class="text-gray-600 text-sm">Implementasi algoritma dalam bahasa Python</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Problem Solving</h3>
+                            <p class="text-gray-600 text-sm">Menyelesaikan masalah dengan pendekatan komputasional</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">🚀 Mari Mulai Coding!</h2>
+                <p class="text-xl mb-6">Pelajari algoritma, bandingkan efisiensinya, dan buat aplikasi pertama Anda</p>
+                <button onclick="showSection('theory')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Mulai Pembelajaran →
+                </button>
+            </div>
+        </section>
+
+        <!-- Theory Section -->
+        <section id="theory" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">📚 Teori Dasar</h2>
+            
+            <div class="grid gap-6">
+                <!-- Modul 1: Konsep Algoritma -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-blue-500 text-white p-4">
+                        <h3 class="text-xl font-bold">Modul 1: Konsep Dasar Algoritma</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-3">🧠 Apa itu Algoritma?</h4>
+                                <p class="text-gray-600 mb-4">Algoritma adalah urutan langkah-langkah logis untuk menyelesaikan suatu masalah.</p>
+                                
+                                <h4 class="font-semibold text-gray-800 mb-3">📝 Karakteristik Algoritma:</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li>• <strong>Input:</strong> Data yang diproses</li>
+                                    <li>• <strong>Output:</strong> Hasil yang diharapkan</li>
+                                    <li>• <strong>Definiteness:</strong> Langkah yang jelas</li>
+                                    <li>• <strong>Finiteness:</strong> Berakhir dalam waktu terbatas</li>
+                                    <li>• <strong>Effectiveness:</strong> Dapat dilaksanakan</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-3">🔄 Contoh Algoritma dalam Python</h4>
+                                <div class="bg-white p-3 rounded border text-sm">
+                                    <p class="font-semibold mb-2">Algoritma Mencari Nilai Terbesar:</p>
+                                    <div class="code-block text-xs code-font mt-2">
+                                        <div># Algoritma mencari nilai terbesar</div>
+                                        <div>def cari_nilai_terbesar(angka_list):</div>
+                                        <div>&nbsp;&nbsp;terbesar = angka_list[0]</div>
+                                        <div>&nbsp;&nbsp;for angka in angka_list:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;if angka > terbesar:</div>
+                                        <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;terbesar = angka</div>
+                                        <div>&nbsp;&nbsp;return terbesar</div>
+                                        <div></div>
+                                        <div># Contoh penggunaan</div>
+                                        <div>nilai = [85, 92, 78, 96, 88]</div>
+                                        <div>print(cari_nilai_terbesar(nilai))</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="completeModule(1)" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                            ✓ Selesai Modul 1
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modul 2: Flowchart -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-green-500 text-white p-4">
+                        <h3 class="text-xl font-bold">Modul 2: Flowchart & Pseudocode</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-3">📊 Simbol Flowchart:</h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">⭕</div>
+                                        <span class="text-sm">Start/End (Terminal)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-blue-100 rounded flex items-center justify-center">📦</div>
+                                        <span class="text-sm">Process (Proses)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">💎</div>
+                                        <span class="text-sm">Decision (Keputusan)</span>
+                                    </div>
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-8 h-8 bg-purple-100 rounded flex items-center justify-center">📄</div>
+                                        <span class="text-sm">Input/Output</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-3">📝 Implementasi Python</h4>
+                                <div class="code-block text-sm code-font">
+                                    <div># Program membandingkan dua angka</div>
+                                    <div>def bandingkan_angka():</div>
+                                    <div>&nbsp;&nbsp;angka1 = int(input("Masukkan angka pertama: "))</div>
+                                    <div>&nbsp;&nbsp;angka2 = int(input("Masukkan angka kedua: "))</div>
+                                    <div>&nbsp;&nbsp;</div>
+                                    <div>&nbsp;&nbsp;if angka1 > angka2:</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;print(f"{angka1} lebih besar dari {angka2}")</div>
+                                    <div>&nbsp;&nbsp;elif angka2 > angka1:</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;print(f"{angka2} lebih besar dari {angka1}")</div>
+                                    <div>&nbsp;&nbsp;else:</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;print("Kedua angka sama besar")</div>
+                                    <div></div>
+                                    <div># Jalankan program</div>
+                                    <div>bandingkan_angka()</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="completeModule(2)" class="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            ✓ Selesai Modul 2
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Modul 3: Kompleksitas -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <div class="bg-purple-500 text-white p-4">
+                        <h3 class="text-xl font-bold">Modul 3: Kompleksitas Algoritma</h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-3">⏱️ Time Complexity:</h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center justify-between p-2 bg-green-50 rounded">
+                                        <span class="text-sm">O(1) - Constant</span>
+                                        <span class="complexity-good font-semibold">Excellent</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-green-50 rounded">
+                                        <span class="text-sm">O(log n) - Logarithmic</span>
+                                        <span class="complexity-good font-semibold">Very Good</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-yellow-50 rounded">
+                                        <span class="text-sm">O(n) - Linear</span>
+                                        <span class="complexity-medium font-semibold">Good</span>
+                                    </div>
+                                    <div class="flex items-center justify-between p-2 bg-red-50 rounded">
+                                        <span class="text-sm">O(n²) - Quadratic</span>
+                                        <span class="complexity-bad font-semibold">Poor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-3">💾 Space Complexity:</h4>
+                                <p class="text-gray-600 text-sm mb-3">Jumlah memori yang dibutuhkan algoritma untuk berjalan.</p>
+                                <div class="bg-blue-50 p-3 rounded">
+                                    <h5 class="font-semibold text-blue-800 mb-2">💡 Tips Optimasi:</h5>
+                                    <ul class="text-blue-700 text-sm space-y-1">
+                                        <li>• Pilih struktur data yang tepat</li>
+                                        <li>• Hindari nested loop yang tidak perlu</li>
+                                        <li>• Gunakan algoritma divide & conquer</li>
+                                        <li>• Implementasikan memoization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <button onclick="completeModule(3)" class="mt-4 bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                            ✓ Selesai Modul 3
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Algorithms Section -->
+        <section id="algorithms" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">🔍 Perbandingan Algoritma</h2>
+            
+            <!-- Algorithm Comparison Tool -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">⚖️ Perbandingan Algoritma Sorting</h3>
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <button onclick="showAlgorithm('bubble')" class="algorithm-btn p-4 border-2 border-blue-200 rounded-lg hover:border-blue-500 transition-colors">
+                        <h4 class="font-semibold text-blue-800">Bubble Sort</h4>
+                        <p class="text-sm text-gray-600">O(n²) - Sederhana</p>
+                    </button>
+                    <button onclick="showAlgorithm('selection')" class="algorithm-btn p-4 border-2 border-green-200 rounded-lg hover:border-green-500 transition-colors">
+                        <h4 class="font-semibold text-green-800">Selection Sort</h4>
+                        <p class="text-sm text-gray-600">O(n²) - Minimal swap</p>
+                    </button>
+                    <button onclick="showAlgorithm('insertion')" class="algorithm-btn p-4 border-2 border-purple-200 rounded-lg hover:border-purple-500 transition-colors">
+                        <h4 class="font-semibold text-purple-800">Insertion Sort</h4>
+                        <p class="text-sm text-gray-600">O(n²) - Adaptif</p>
+                    </button>
+                </div>
+
+                <div id="algorithm-display" class="bg-gray-50 rounded-lg p-6">
+                    <p class="text-gray-500 text-center">Pilih algoritma di atas untuk melihat detail implementasi</p>
+                </div>
+
+                <div class="mt-6">
+                    <h4 class="font-semibold text-gray-800 mb-3">🎮 Visualisasi Sorting</h4>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <button onclick="generateArray()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+                            🔄 Generate Array
+                        </button>
+                        <button onclick="startSorting()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
+                            ▶️ Start Sorting
+                        </button>
+                        <select id="sort-algorithm" class="border rounded px-3 py-2">
+                            <option value="bubble">Bubble Sort</option>
+                            <option value="selection">Selection Sort</option>
+                            <option value="insertion">Insertion Sort</option>
+                        </select>
+                    </div>
+                    <div id="array-visualization" class="flex items-end space-x-1 h-32 bg-white p-4 rounded border">
+                        <!-- Array bars will be generated here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Algorithms -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🔍 Algoritma Pencarian</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="border rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-3">Linear Search</h4>
+                        <div class="code-block text-sm code-font mb-3">
+                            <div>def linear_search(arr, target):</div>
+                            <div>&nbsp;&nbsp;for i in range(len(arr)):</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;if arr[i] == target:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return i</div>
+                            <div>&nbsp;&nbsp;return -1</div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p><strong>Kompleksitas:</strong> O(n)</p>
+                            <p><strong>Keunggulan:</strong> Sederhana, bekerja pada array tidak terurut</p>
+                        </div>
+                    </div>
+
+                    <div class="border rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-3">Binary Search</h4>
+                        <div class="code-block text-sm code-font mb-3">
+                            <div>def binary_search(arr, target):</div>
+                            <div>&nbsp;&nbsp;left, right = 0, len(arr) - 1</div>
+                            <div>&nbsp;&nbsp;while left <= right:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;mid = (left + right) // 2</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;if arr[mid] == target:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return mid</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;elif arr[mid] < target:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left = mid + 1</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;else:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right = mid - 1</div>
+                            <div>&nbsp;&nbsp;return -1</div>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            <p><strong>Kompleksitas:</strong> O(log n)</p>
+                            <p><strong>Keunggulan:</strong> Sangat cepat, efisien untuk data besar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">📊 Perbandingan Performa</h4>
+                    <div class="text-sm text-yellow-700">
+                        <p>Untuk array dengan 1000 elemen:</p>
+                        <ul class="mt-2 space-y-1">
+                            <li>• Linear Search: Maksimal 1000 perbandingan</li>
+                            <li>• Binary Search: Maksimal 10 perbandingan</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programming Section -->
+        <section id="programming" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">💻 Pemrograman Python</h2>
+            
+            <!-- Python Basics -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🐍 Dasar-dasar Python</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">📝 Variabel & Tipe Data</h4>
+                        <div class="code-block text-sm code-font mb-3">
+                            <div># Variabel dan tipe data</div>
+                            <div>nama = "Alice"        # String</div>
+                            <div>umur = 16           # Integer</div>
+                            <div>tinggi = 165.5      # Float</div>
+                            <div>aktif = True        # Boolean</div>
+                            <div>hobi = ["coding", "musik"]  # List</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">🔄 Control Flow</h4>
+                        <div class="code-block text-sm code-font mb-3">
+                            <div># Conditional</div>
+                            <div>if umur >= 17:</div>
+                            <div>&nbsp;&nbsp;print("Bisa ikut ujian")</div>
+                            <div>else:</div>
+                            <div>&nbsp;&nbsp;print("Belum bisa ujian")</div>
+                            <div></div>
+                            <div># Loop</div>
+                            <div>for i in range(5):</div>
+                            <div>&nbsp;&nbsp;print(f"Iterasi ke-{i}")</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Code Editor -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">⚡ Code Editor Interaktif</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">📝 Tulis Kode Python:</h4>
+                        <textarea id="code-editor" class="w-full h-64 p-4 border rounded-lg code-font text-sm bg-gray-900 text-green-400" placeholder="# Tulis kode Python di sini
+print('Selamat datang di Python!')
+
+# Contoh 1: Hitung faktorial
+def faktorial(n):
+    if n <= 1:
+        return 1
+    return n * faktorial(n-1)
+
+print(f'5! = {faktorial(5)}')
+
+# Contoh 2: Cek bilangan genap/ganjil
+def cek_genap_ganjil(angka):
+    if angka % 2 == 0:
+        return f'{angka} adalah bilangan genap'
+    else:
+        return f'{angka} adalah bilangan ganjil'
+
+print(cek_genap_ganjil(7))
+
+# Contoh 3: Hitung rata-rata
+def hitung_rata_rata(nilai_list):
+    return sum(nilai_list) / len(nilai_list)
+
+nilai_siswa = [85, 90, 78, 92, 88]
+print(f'Rata-rata: {hitung_rata_rata(nilai_siswa):.2f}')"></textarea>
+                        <button onclick="runCode()" class="mt-3 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            ▶️ Jalankan Kode
+                        </button>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">📤 Output:</h4>
+                        <div id="code-output" class="w-full h-64 p-4 border rounded-lg bg-black text-green-400 code-font text-sm overflow-y-auto">
+                            <div class="text-gray-500">Output akan muncul di sini...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming Exercises -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🏋️ Latihan Pemrograman</h3>
+                <div class="space-y-6">
+                    <div class="border rounded-lg p-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">Latihan 1: Kalkulator Sederhana</h4>
+                        <p class="text-gray-600 text-sm mb-3">Buat program kalkulator yang dapat melakukan operasi +, -, *, /</p>
+                        <div class="code-block text-sm code-font">
+                            <div># Template</div>
+                            <div>def kalkulator(a, b, operasi):</div>
+                            <div>&nbsp;&nbsp;# Lengkapi kode di sini</div>
+                            <div>&nbsp;&nbsp;pass</div>
+                        </div>
+                        <button onclick="showSolution(1)" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors text-sm">
+                            💡 Lihat Solusi
+                        </button>
+                    </div>
+
+                    <div class="border rounded-lg p-4">
+                        <h4 class="font-semibold text-green-800 mb-2">Latihan 2: Cek Bilangan Prima</h4>
+                        <p class="text-gray-600 text-sm mb-3">Buat fungsi untuk mengecek apakah suatu bilangan adalah prima</p>
+                        <div class="code-block text-sm code-font">
+                            <div># Template</div>
+                            <div>def is_prima(n):</div>
+                            <div>&nbsp;&nbsp;# Lengkapi kode di sini</div>
+                            <div>&nbsp;&nbsp;pass</div>
+                        </div>
+                        <button onclick="showSolution(2)" class="mt-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors text-sm">
+                            💡 Lihat Solusi
+                        </button>
+                    </div>
+
+                    <div class="border rounded-lg p-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">Latihan 3: Fibonacci Sequence</h4>
+                        <p class="text-gray-600 text-sm mb-3">Buat program untuk menghasilkan deret Fibonacci hingga n suku</p>
+                        <div class="code-block text-sm code-font">
+                            <div># Template</div>
+                            <div>def fibonacci(n):</div>
+                            <div>&nbsp;&nbsp;# Lengkapi kode di sini</div>
+                            <div>&nbsp;&nbsp;pass</div>
+                        </div>
+                        <button onclick="showSolution(3)" class="mt-2 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors text-sm">
+                            💡 Lihat Solusi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">🚀 Proyek Aplikasi</h2>
+            
+            <div class="grid gap-6">
+                <!-- Project 1: To-Do List -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📝</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Proyek 1: Aplikasi To-Do List</h3>
+                            <p class="text-gray-600">Buat aplikasi manajemen tugas sederhana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">🎯 Fitur yang harus ada:</h4>
+                        <ul class="text-blue-700 text-sm space-y-1">
+                            <li>• Tambah tugas baru</li>
+                            <li>• Tandai tugas selesai</li>
+                            <li>• Hapus tugas</li>
+                            <li>• Tampilkan daftar tugas</li>
+                            <li>• Simpan data ke file</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(1)" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                            🚀 Mulai Proyek
+                        </button>
+                        <button onclick="showProjectDemo(1)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            👁️ Lihat Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Number Guessing Game -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">🎲</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Proyek 2: Game Tebak Angka</h3>
+                            <p class="text-gray-600">Buat game interaktif tebak angka dengan level kesulitan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-green-800 mb-2">🎮 Spesifikasi Game:</h4>
+                        <ul class="text-green-700 text-sm space-y-1">
+                            <li>• 3 level kesulitan (Easy, Medium, Hard)</li>
+                            <li>• Sistem scoring berdasarkan jumlah tebakan</li>
+                            <li>• Hint system (lebih besar/kecil)</li>
+                            <li>• High score tracking</li>
+                            <li>• Menu utama dan restart game</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(2)" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            🎲 Mulai Proyek
+                        </button>
+                        <button onclick="showProjectDemo(2)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            👁️ Lihat Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Student Grade Calculator -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Proyek 3: Kalkulator Nilai Siswa</h3>
+                            <p class="text-gray-600">Aplikasi untuk menghitung dan menganalisis nilai siswa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">📈 Fitur Analisis:</h4>
+                        <ul class="text-purple-700 text-sm space-y-1">
+                            <li>• Input nilai multiple mata pelajaran</li>
+                            <li>• Hitung rata-rata, nilai tertinggi, terendah</li>
+                            <li>• Konversi ke grade (A, B, C, D, E)</li>
+                            <li>• Grafik distribusi nilai</li>
+                            <li>• Export laporan ke file</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(3)" class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                            📊 Mulai Proyek
+                        </button>
+                        <button onclick="showProjectDemo(3)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            👁️ Lihat Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Development Tools -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4">🛠️ Tools Pengembangan</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">💻 IDE/Editor</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• VS Code (Recommended)</li>
+                            <li>• PyCharm Community</li>
+                            <li>• IDLE (Built-in)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">📚 Libraries</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• tkinter (GUI)</li>
+                            <li>• matplotlib (Grafik)</li>
+                            <li>• json (Data)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">🔧 Debugging</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• print() statements</li>
+                            <li>• Python debugger</li>
+                            <li>• Error handling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Section -->
+        <section id="assessment" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">📊 Evaluasi Pembelajaran</h2>
+            
+            <!-- Quiz Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🧠 Kuis Algoritma & Pemrograman</h3>
+                <div id="quiz-container">
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 1: Kompleksitas waktu algoritma Binary Search adalah:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="a" class="text-blue-600">
+                                <span>O(n)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="b" class="text-blue-600">
+                                <span>O(log n)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="c" class="text-blue-600">
+                                <span>O(n²)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 2: Algoritma sorting mana yang paling efisien untuk data kecil?</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="a" class="text-blue-600">
+                                <span>Bubble Sort</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="b" class="text-blue-600">
+                                <span>Insertion Sort</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="c" class="text-blue-600">
+                                <span>Selection Sort</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 3: Dalam Python, tipe data mana yang bersifat mutable?</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="a" class="text-blue-600">
+                                <span>String</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="b" class="text-blue-600">
+                                <span>List</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="c" class="text-blue-600">
+                                <span>Tuple</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="checkQuiz()" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                    📝 Submit Kuis
+                </button>
+                
+                <div id="quiz-result" class="hidden mt-6 p-4 rounded-lg"></div>
+            </div>
+
+            <!-- Coding Challenge -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">💻 Coding Challenge</h3>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+                    <h4 class="font-semibold text-yellow-800 mb-2">🏆 Challenge: Implementasi Quick Sort</h4>
+                    <p class="text-yellow-700 text-sm">Implementasikan algoritma Quick Sort dan bandingkan performanya dengan Bubble Sort untuk array dengan 100 elemen.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">📝 Template Code:</h4>
+                        <div class="code-block text-sm code-font">
+                            <div>def quick_sort(arr):</div>
+                            <div>&nbsp;&nbsp;# Implementasi Quick Sort</div>
+                            <div>&nbsp;&nbsp;# Base case</div>
+                            <div>&nbsp;&nbsp;if len(arr) <= 1:</div>
+                            <div>&nbsp;&nbsp;&nbsp;&nbsp;return arr</div>
+                            <div>&nbsp;&nbsp;</div>
+                            <div>&nbsp;&nbsp;# Pilih pivot</div>
+                            <div>&nbsp;&nbsp;pivot = arr[len(arr) // 2]</div>
+                            <div>&nbsp;&nbsp;</div>
+                            <div>&nbsp;&nbsp;# Partisi array</div>
+                            <div>&nbsp;&nbsp;# Lengkapi kode di sini...</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-gray-800 mb-3">✅ Kriteria Penilaian:</h4>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li>• <strong>Correctness (40%):</strong> Algoritma bekerja dengan benar</li>
+                            <li>• <strong>Efficiency (30%):</strong> Implementasi optimal</li>
+                            <li>• <strong>Code Quality (20%):</strong> Clean code, readable</li>
+                            <li>• <strong>Documentation (10%):</strong> Komentar yang jelas</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-blue-50 rounded">
+                            <p class="text-blue-800 text-sm font-semibold">💡 Hint:</p>
+                            <p class="text-blue-700 text-sm">Gunakan list comprehension untuk partisi yang efisien!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portfolio Submission -->
+            <div class="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4">📁 Submit Portfolio</h3>
+                <p class="mb-4">Kumpulkan semua proyek dan tugas dalam portfolio digital</p>
+                <div class="bg-white/20 rounded-lg p-4 mb-4">
+                    <h4 class="font-semibold mb-2">Portfolio harus berisi:</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>✓ 3 Proyek aplikasi lengkap dengan source code</li>
+                        <li>✓ Analisis perbandingan algoritma (min. 3 algoritma)</li>
+                        <li>✓ Dokumentasi proses development</li>
+                        <li>✓ Refleksi pembelajaran dan tantangan yang dihadapi</li>
+                        <li>✓ Video demo aplikasi (opsional, nilai bonus)</li>
+                    </ul>
+                </div>
+                <button onclick="submitPortfolio()" class="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    📤 Submit Portfolio
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        let completedModules = [];
+        let currentProgress = 0;
+        let arrayData = [];
+        let sortingInProgress = false;
+
+        function showSection(sectionName) {
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            document.getElementById(sectionName).classList.remove('hidden');
+            document.getElementById(sectionName).classList.add('fade-in');
+            
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-100', 'text-blue-700');
+                btn.classList.add('hover:bg-gray-100');
+            });
+            
+            event.target.classList.add('bg-blue-100', 'text-blue-700');
+            event.target.classList.remove('hover:bg-gray-100');
+        }
+
+        function completeModule(moduleNumber) {
+            if (!completedModules.includes(moduleNumber)) {
+                completedModules.push(moduleNumber);
+                updateProgress();
+                
+                event.target.innerHTML = '✅ Modul Selesai';
+                event.target.classList.remove('bg-blue-500', 'hover:bg-blue-600', 'bg-green-500', 'hover:bg-green-600', 'bg-purple-500', 'hover:bg-purple-600');
+                event.target.classList.add('bg-gray-400', 'cursor-not-allowed');
+                event.target.disabled = true;
+                
+                setTimeout(() => {
+                    alert(`🎉 Selamat! Anda telah menyelesaikan Modul ${moduleNumber}`);
+                }, 500);
+            }
+        }
+
+        function updateProgress() {
+            const totalModules = 3;
+            const progressPercentage = (completedModules.length / totalModules) * 100;
+            currentProgress = progressPercentage;
+            
+            document.getElementById('progress-bar').style.width = progressPercentage + '%';
+            document.getElementById('progress-text').textContent = Math.round(progressPercentage) + '%';
+        }
+
+        function showAlgorithm(algorithm) {
+            const algorithms = {
+                bubble: {
+                    name: 'Bubble Sort',
+                    complexity: 'O(n²)',
+                    description: 'Membandingkan elemen bersebelahan dan menukar jika tidak berurutan',
+                    code: `def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr`,
+                    pros: ['Sederhana untuk dipahami', 'Tidak memerlukan memori tambahan', 'Stable sorting'],
+                    cons: ['Sangat lambat untuk data besar', 'Kompleksitas O(n²)', 'Tidak efisien']
+                },
+                selection: {
+                    name: 'Selection Sort',
+                    complexity: 'O(n²)',
+                    description: 'Mencari elemen terkecil dan menempatkannya di posisi yang benar',
+                    code: `def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr`,
+                    pros: ['Minimal jumlah swap', 'Sederhana', 'Bekerja baik untuk data kecil'],
+                    cons: ['Kompleksitas O(n²)', 'Tidak stable', 'Tidak adaptif']
+                },
+                insertion: {
+                    name: 'Insertion Sort',
+                    complexity: 'O(n²)',
+                    description: 'Menyisipkan setiap elemen ke posisi yang tepat dalam bagian yang sudah terurut',
+                    code: `def insertion_sort(arr):
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr`,
+                    pros: ['Efisien untuk data kecil', 'Adaptif (cepat untuk data hampir terurut)', 'Stable sorting'],
+                    cons: ['Kompleksitas O(n²) untuk worst case', 'Tidak efisien untuk data besar']
+                }
+            };
+
+            const algo = algorithms[algorithm];
+            const displayDiv = document.getElementById('algorithm-display');
+            
+            displayDiv.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">${algo.name}</h4>
+                        <p class="text-gray-600 mb-4">${algo.description}</p>
+                        <div class="bg-red-100 border border-red-300 rounded p-3 mb-4">
+                            <span class="font-semibold text-red-800">Kompleksitas: ${algo.complexity}</span>
+                        </div>
+                        <div class="code-block text-sm code-font">
+                            ${algo.code.split('\n').map(line => `<div>${line}</div>`).join('')}
+                        </div>
+                    </div>
+                    <div>
+                        <div class="mb-4">
+                            <h5 class="font-semibold text-green-800 mb-2">✅ Keunggulan:</h5>
+                            <ul class="text-sm text-green-700 space-y-1">
+                                ${algo.pros.map(pro => `<li>• ${pro}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-red-800 mb-2">❌ Kelemahan:</h5>
+                            <ul class="text-sm text-red-700 space-y-1">
+                                ${algo.cons.map(con => `<li>• ${con}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function generateArray() {
+            arrayData = [];
+            for (let i = 0; i < 10; i++) {
+                arrayData.push(Math.floor(Math.random() * 100) + 1);
+            }
+            visualizeArray();
+        }
+
+        function visualizeArray() {
+            const container = document.getElementById('array-visualization');
+            container.innerHTML = '';
+            
+            arrayData.forEach((value, index) => {
+                const bar = document.createElement('div');
+                bar.className = 'bg-blue-500 text-white text-xs flex items-end justify-center transition-all duration-300';
+                bar.style.height = `${value}%`;
+                bar.style.width = '30px';
+                bar.textContent = value;
+                bar.id = `bar-${index}`;
+                container.appendChild(bar);
+            });
+        }
+
+        function startSorting() {
+            if (sortingInProgress || arrayData.length === 0) return;
+            
+            const algorithm = document.getElementById('sort-algorithm').value;
+            sortingInProgress = true;
+            
+            if (algorithm === 'bubble') {
+                bubbleSortVisualization();
+            } else if (algorithm === 'selection') {
+                selectionSortVisualization();
+            } else if (algorithm === 'insertion') {
+                insertionSortVisualization();
+            }
+        }
+
+        async function bubbleSortVisualization() {
+            const n = arrayData.length;
+            for (let i = 0; i < n; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    // Highlight comparison
+                    document.getElementById(`bar-${j}`).classList.add('bg-red-500');
+                    document.getElementById(`bar-${j+1}`).classList.add('bg-red-500');
+                    
+                    await sleep(500);
+                    
+                    if (arrayData[j] > arrayData[j + 1]) {
+                        // Swap
+                        [arrayData[j], arrayData[j + 1]] = [arrayData[j + 1], arrayData[j]];
+                        visualizeArray();
+                    }
+                    
+                    // Remove highlight
+                    document.getElementById(`bar-${j}`).classList.remove('bg-red-500');
+                    document.getElementById(`bar-${j+1}`).classList.remove('bg-red-500');
+                }
+                // Mark as sorted
+                document.getElementById(`bar-${n-i-1}`).classList.add('bg-green-500');
+            }
+            sortingInProgress = false;
+        }
+
+        async function selectionSortVisualization() {
+            const n = arrayData.length;
+            for (let i = 0; i < n; i++) {
+                let minIdx = i;
+                document.getElementById(`bar-${i}`).classList.add('bg-yellow-500');
+                
+                for (let j = i + 1; j < n; j++) {
+                    document.getElementById(`bar-${j}`).classList.add('bg-red-500');
+                    await sleep(300);
+                    
+                    if (arrayData[j] < arrayData[minIdx]) {
+                        if (minIdx !== i) document.getElementById(`bar-${minIdx}`).classList.remove('bg-orange-500');
+                        minIdx = j;
+                        document.getElementById(`bar-${minIdx}`).classList.add('bg-orange-500');
+                    }
+                    
+                    document.getElementById(`bar-${j}`).classList.remove('bg-red-500');
+                }
+                
+                if (minIdx !== i) {
+                    [arrayData[i], arrayData[minIdx]] = [arrayData[minIdx], arrayData[i]];
+                    visualizeArray();
+                }
+                
+                document.getElementById(`bar-${i}`).classList.remove('bg-yellow-500', 'bg-orange-500');
+                document.getElementById(`bar-${i}`).classList.add('bg-green-500');
+            }
+            sortingInProgress = false;
+        }
+
+        async function insertionSortVisualization() {
+            for (let i = 1; i < arrayData.length; i++) {
+                let key = arrayData[i];
+                let j = i - 1;
+                
+                document.getElementById(`bar-${i}`).classList.add('bg-yellow-500');
+                await sleep(500);
+                
+                while (j >= 0 && arrayData[j] > key) {
+                    document.getElementById(`bar-${j}`).classList.add('bg-red-500');
+                    arrayData[j + 1] = arrayData[j];
+                    visualizeArray();
+                    await sleep(300);
+                    document.getElementById(`bar-${j}`).classList.remove('bg-red-500');
+                    j--;
+                }
+                
+                arrayData[j + 1] = key;
+                visualizeArray();
+                document.getElementById(`bar-${i}`).classList.remove('bg-yellow-500');
+                document.getElementById(`bar-${i}`).classList.add('bg-green-500');
+            }
+            sortingInProgress = false;
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function runCode() {
+            const code = document.getElementById('code-editor').value;
+            const output = document.getElementById('code-output');
+            
+            // Simple code execution simulation
+            try {
+                output.innerHTML = '<div class="text-green-400">🐍 Python Code Executed Successfully!</div><div class="text-gray-400 mt-2">Catatan: Ini adalah simulasi output. Untuk menjalankan kode Python sesungguhnya, gunakan IDE seperti VS Code atau PyCharm.</div>';
+                
+                // Simulate realistic Python output based on code content
+                let simulatedOutput = '';
+                
+                if (code.includes("print('Selamat datang di Python!')")) {
+                    simulatedOutput += '<div class="text-white mt-2">Selamat datang di Python!</div>';
+                }
+                
+                if (code.includes('faktorial')) {
+                    simulatedOutput += '<div class="text-white">5! = 120</div>';
+                }
+                
+                if (code.includes('cek_genap_ganjil')) {
+                    simulatedOutput += '<div class="text-white">7 adalah bilangan ganjil</div>';
+                }
+                
+                if (code.includes('hitung_rata_rata')) {
+                    simulatedOutput += '<div class="text-white">Rata-rata: 86.60</div>';
+                }
+                
+                if (code.includes('Hello, World')) {
+                    simulatedOutput += '<div class="text-white">Hello, World!</div>';
+                }
+                
+                // Show generic output if no specific patterns found
+                if (simulatedOutput === '' && code.includes('print')) {
+                    simulatedOutput = '<div class="text-white mt-2">Program output akan muncul di sini...</div>';
+                }
+                
+                output.innerHTML += simulatedOutput;
+                
+            } catch (error) {
+                output.innerHTML = `<div class="text-red-400">❌ Error: ${error.message}</div>`;
+            }
+        }
+
+        function showSolution(exerciseNumber) {
+            const solutions = {
+                1: `def kalkulator(a, b, operasi):
+    if operasi == '+':
+        return a + b
+    elif operasi == '-':
+        return a - b
+    elif operasi == '*':
+        return a * b
+    elif operasi == '/':
+        if b != 0:
+            return a / b
+        else:
+            return "Error: Pembagian dengan nol"
+    else:
+        return "Error: Operasi tidak valid"
+
+# Contoh penggunaan
+print(kalkulator(10, 5, '+'))  # Output: 15
+print(kalkulator(10, 5, '/'))  # Output: 2.0`,
+                
+                2: `def is_prima(n):
+    if n < 2:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    
+    for i in range(3, int(n**0.5) + 1, 2):
+        if n % i == 0:
+            return False
+    return True
+
+# Contoh penggunaan
+print(is_prima(17))  # Output: True
+print(is_prima(15))  # Output: False`,
+                
+                3: `def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    
+    fib_sequence = [0, 1]
+    for i in range(2, n):
+        fib_sequence.append(fib_sequence[i-1] + fib_sequence[i-2])
+    
+    return fib_sequence
+
+# Contoh penggunaan
+print(fibonacci(10))  # Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]`
+            };
+            
+            document.getElementById('modal-title').textContent = `Solusi Latihan ${exerciseNumber}`;
+            document.getElementById('modal-content').innerHTML = `
+                <div class="code-block text-sm code-font">
+                    ${solutions[exerciseNumber].split('\n').map(line => `<div>${line}</div>`).join('')}
+                </div>
+                <div class="mt-4 p-4 bg-blue-50 rounded-lg">
+                    <h4 class="font-semibold text-blue-800 mb-2">💡 Penjelasan:</h4>
+                    <p class="text-blue-700 text-sm">Coba pahami logika di setiap baris kode dan jalankan untuk melihat hasilnya!</p>
+                </div>
+            `;
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+        }
+
+        function startProject(projectNumber) {
+            const projects = {
+                1: {
+                    title: 'Proyek 1: Aplikasi To-Do List',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-3">🎯 Langkah Pengembangan:</h4>
+                                <ol class="text-blue-700 space-y-2">
+                                    <li>1. <strong>Setup Project:</strong> Buat file todo_app.py</li>
+                                    <li>2. <strong>Data Structure:</strong> Gunakan list untuk menyimpan tugas</li>
+                                    <li>3. <strong>Core Functions:</strong> add_task(), remove_task(), mark_complete()</li>
+                                    <li>4. <strong>User Interface:</strong> Menu berbasis teks</li>
+                                    <li>5. <strong>Data Persistence:</strong> Simpan ke file JSON</li>
+                                </ol>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-3">📝 Template Starter:</h4>
+                                <div class="code-block text-sm code-font">
+                                    <div>import json</div>
+                                    <div>from datetime import datetime</div>
+                                    <div></div>
+                                    <div>class TodoApp:</div>
+                                    <div>&nbsp;&nbsp;def __init__(self):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.tasks = []</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.load_tasks()</div>
+                                    <div></div>
+                                    <div>&nbsp;&nbsp;def add_task(self, task):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;# Implementasi di sini</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;pass</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">✅ Checklist Fitur:</h4>
+                                <ul class="text-green-700 text-sm space-y-1">
+                                    <li>□ Tambah tugas baru dengan timestamp</li>
+                                    <li>□ Tampilkan semua tugas</li>
+                                    <li>□ Tandai tugas sebagai selesai</li>
+                                    <li>□ Hapus tugas</li>
+                                    <li>□ Filter tugas (selesai/belum selesai)</li>
+                                    <li>□ Simpan data ke file JSON</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                2: {
+                    title: 'Proyek 2: Game Tebak Angka',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-3">🎮 Game Design:</h4>
+                                <ul class="text-green-700 space-y-2">
+                                    <li>• <strong>Easy:</strong> 1-50, 10 percobaan</li>
+                                    <li>• <strong>Medium:</strong> 1-100, 7 percobaan</li>
+                                    <li>• <strong>Hard:</strong> 1-200, 5 percobaan</li>
+                                    <li>• <strong>Scoring:</strong> Skor berdasarkan sisa percobaan</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-3">🏗️ Struktur Program:</h4>
+                                <div class="code-block text-sm code-font">
+                                    <div>import random</div>
+                                    <div>import json</div>
+                                    <div></div>
+                                    <div>class NumberGuessingGame:</div>
+                                    <div>&nbsp;&nbsp;def __init__(self):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.high_scores = self.load_scores()</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.current_score = 0</div>
+                                    <div></div>
+                                    <div>&nbsp;&nbsp;def play_game(self, difficulty):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;# Game logic di sini</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;pass</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">🏆 Bonus Features:</h4>
+                                <ul class="text-purple-700 text-sm space-y-1">
+                                    <li>• Hint system (ganjil/genap, kelipatan)</li>
+                                    <li>• Multiplayer mode</li>
+                                    <li>• Sound effects (text-based)</li>
+                                    <li>• Statistics tracking</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                },
+                3: {
+                    title: 'Proyek 3: Kalkulator Nilai Siswa',
+                    content: `
+                        <div class="space-y-6">
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-3">📊 Fitur Analisis:</h4>
+                                <ul class="text-purple-700 space-y-2">
+                                    <li>• Input nilai multiple mata pelajaran</li>
+                                    <li>• Hitung statistik (mean, median, mode)</li>
+                                    <li>• Konversi ke grade (A: 90-100, B: 80-89, dst)</li>
+                                    <li>• Visualisasi distribusi nilai</li>
+                                    <li>• Export laporan</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-gray-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-gray-800 mb-3">💻 Template Code:</h4>
+                                <div class="code-block text-sm code-font">
+                                    <div>class GradeCalculator:</div>
+                                    <div>&nbsp;&nbsp;def __init__(self):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.students = {}</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.subjects = []</div>
+                                    <div></div>
+                                    <div>&nbsp;&nbsp;def add_student(self, name):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;self.students[name] = {}</div>
+                                    <div></div>
+                                    <div>&nbsp;&nbsp;def add_grade(self, student, subject, grade):</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;# Implementasi di sini</div>
+                                    <div>&nbsp;&nbsp;&nbsp;&nbsp;pass</div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-orange-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-800 mb-2">📈 Advanced Features:</h4>
+                                <ul class="text-orange-700 text-sm space-y-1">
+                                    <li>• Weighted grades (UTS, UAS, Tugas)</li>
+                                    <li>• Class ranking</li>
+                                    <li>• Progress tracking over time</li>
+                                    <li>• Parent report generation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    `
+                }
+            };
+            
+            const project = projects[projectNumber];
+            document.getElementById('modal-title').textContent = project.title;
+            document.getElementById('modal-content').innerHTML = project.content;
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('modal').classList.add('flex');
+        }
+
+        function showProjectDemo(projectNumber) {
+            alert(`🎬 Demo Proyek ${projectNumber} akan segera tersedia!\n\nSilakan mulai mengerjakan proyek untuk melihat hasil implementasi Anda.`);
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('modal').classList.remove('flex');
+        }
+
+        function checkQuiz() {
+            const answers = {
+                q1: 'b', // O(log n)
+                q2: 'b', // Insertion Sort
+                q3: 'b'  // List
+            };
+            
+            let score = 0;
+            let totalQuestions = Object.keys(answers).length;
+            
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / totalQuestions) * 100;
+            const resultDiv = document.getElementById('quiz-result');
+            
+            resultDiv.classList.remove('hidden');
+            
+            if (percentage >= 80) {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-green-100 border border-green-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">🎉</span>
+                        <div>
+                            <h4 class="font-semibold text-green-800">Excellent!</h4>
+                            <p class="text-green-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-green-600 mt-1">Pemahaman algoritma dan pemrograman Anda sangat baik!</p>
+                        </div>
+                    </div>
+                `;
+            } else if (percentage >= 60) {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-yellow-100 border border-yellow-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">👍</span>
+                        <div>
+                            <h4 class="font-semibold text-yellow-800">Good Job!</h4>
+                            <p class="text-yellow-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-yellow-600 mt-1">Coba review materi algoritma sekali lagi.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-red-100 border border-red-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📚</span>
+                        <div>
+                            <h4 class="font-semibold text-red-800">Perlu Belajar Lagi</h4>
+                            <p class="text-red-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-red-600 mt-1">Silakan pelajari kembali materi teori dan algoritma.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function submitPortfolio() {
+            if (completedModules.length < 3) {
+                alert('⚠️ Harap selesaikan semua modul terlebih dahulu sebelum submit portfolio.');
+                return;
+            }
+            
+            alert('📤 Portfolio berhasil disubmit!\n\n✅ Semua proyek dan tugas telah diterima\n✅ Guru akan melakukan code review dalam 3-5 hari kerja\n✅ Feedback akan diberikan untuk setiap proyek\n\nSelamat! Anda telah menyelesaikan pembelajaran Algoritma & Pemrograman! 🎉');
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('overview');
+            generateArray();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976476b43425f8ee',t:'MTc1NjM5MDk3Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basis Data dan Pengolahan Data - Kelas 10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">📊</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Basis Data & Pengolahan Data</h1>
+                        <p class="text-sm text-gray-600">Kelas 10 - Fase E | Analisis Data</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-gray-600">Capaian Pembelajaran:</p>
+                    <p class="text-xs text-blue-600 font-medium">Memahami konsep dasar basis data dan menerapkan pengolahan data</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex space-x-8">
+                <button onclick="showSection('konsep')" class="nav-btn py-4 px-2 border-b-2 border-blue-500 text-blue-600 font-medium">
+                    📚 Konsep Dasar
+                </button>
+                <button onclick="showSection('struktur')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                    🏗️ Struktur Database
+                </button>
+                <button onclick="showSection('pengolahan')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                    ⚙️ Pengolahan Data
+                </button>
+                <button onclick="showSection('praktik')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                    💻 Praktik
+                </button>
+                <button onclick="showSection('kuis')" class="nav-btn py-4 px-2 border-b-2 border-transparent text-gray-500 hover:text-gray-700">
+                    🎯 Kuis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-8">
+        <!-- Section: Konsep Dasar -->
+        <div id="konsep" class="section fade-in">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    📚 <span class="ml-3">Konsep Dasar Basis Data</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-3">Apa itu Basis Data?</h3>
+                            <p class="text-gray-700 leading-relaxed">
+                                Basis data (database) adalah kumpulan data yang terorganisir dan tersimpan secara sistematis dalam komputer, sehingga dapat diakses dan dikelola dengan mudah.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-green-800 mb-3">Mengapa Penting?</h3>
+                            <ul class="text-gray-700 space-y-2">
+                                <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Menyimpan data dalam jumlah besar</li>
+                                <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Menghindari duplikasi data</li>
+                                <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Memudahkan pencarian informasi</li>
+                                <li class="flex items-center"><span class="text-green-600 mr-2">✓</span> Menjaga keamanan data</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-purple-800 mb-4">Contoh Basis Data dalam Kehidupan</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-800">🏫 Sekolah</h4>
+                                <p class="text-sm text-gray-600">Data siswa, nilai, jadwal pelajaran</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-800">🏥 Rumah Sakit</h4>
+                                <p class="text-sm text-gray-600">Data pasien, rekam medis, obat-obatan</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow-sm">
+                                <h4 class="font-medium text-gray-800">🛒 E-commerce</h4>
+                                <p class="text-sm text-gray-600">Data produk, pelanggan, transaksi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Struktur Database -->
+        <div id="struktur" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    🏗️ <span class="ml-3">Struktur Basis Data</span>
+                </h2>
+                
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-blue-50 p-6 rounded-lg card-hover">
+                        <div class="text-3xl mb-3">🗃️</div>
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">Tabel (Table)</h3>
+                        <p class="text-gray-700">Struktur dasar yang menyimpan data dalam bentuk baris dan kolom, seperti spreadsheet.</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-6 rounded-lg card-hover">
+                        <div class="text-3xl mb-3">📋</div>
+                        <h3 class="text-xl font-semibold text-green-800 mb-3">Field/Kolom</h3>
+                        <p class="text-gray-700">Atribut atau karakteristik data, seperti nama, umur, alamat dalam tabel siswa.</p>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-6 rounded-lg card-hover">
+                        <div class="text-3xl mb-3">📝</div>
+                        <h3 class="text-xl font-semibold text-purple-800 mb-3">Record/Baris</h3>
+                        <p class="text-gray-700">Satu set data lengkap, misalnya informasi lengkap satu siswa.</p>
+                    </div>
+                </div>
+
+                <!-- Contoh Tabel Interaktif -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Contoh Tabel: Data Siswa</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full bg-white rounded-lg shadow-sm">
+                            <thead class="bg-blue-600 text-white">
+                                <tr>
+                                    <th class="px-4 py-3 text-left">ID Siswa</th>
+                                    <th class="px-4 py-3 text-left">Nama</th>
+                                    <th class="px-4 py-3 text-left">Kelas</th>
+                                    <th class="px-4 py-3 text-left">Umur</th>
+                                    <th class="px-4 py-3 text-left">Alamat</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentTable">
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="px-4 py-3">001</td>
+                                    <td class="px-4 py-3">Ahmad Rizki</td>
+                                    <td class="px-4 py-3">10A</td>
+                                    <td class="px-4 py-3">16</td>
+                                    <td class="px-4 py-3">Jakarta</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="px-4 py-3">002</td>
+                                    <td class="px-4 py-3">Siti Nurhaliza</td>
+                                    <td class="px-4 py-3">10B</td>
+                                    <td class="px-4 py-3">15</td>
+                                    <td class="px-4 py-3">Bandung</td>
+                                </tr>
+                                <tr class="border-b hover:bg-blue-50">
+                                    <td class="px-4 py-3">003</td>
+                                    <td class="px-4 py-3">Budi Santoso</td>
+                                    <td class="px-4 py-3">10A</td>
+                                    <td class="px-4 py-3">16</td>
+                                    <td class="px-4 py-3">Surabaya</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-600">
+                        <p><strong>Field/Kolom:</strong> ID Siswa, Nama, Kelas, Umur, Alamat</p>
+                        <p><strong>Record/Baris:</strong> Setiap baris berisi data lengkap satu siswa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Pengolahan Data -->
+        <div id="pengolahan" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    ⚙️ <span class="ml-3">Pengolahan Data</span>
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-yellow-50 p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold text-yellow-800 mb-4">Operasi Dasar (CRUD)</h3>
+                            <div class="space-y-3">
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">C</span>
+                                    <span class="font-medium">Create - Menambah data baru</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">R</span>
+                                    <span class="font-medium">Read - Membaca/mencari data</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">U</span>
+                                    <span class="font-medium">Update - Mengubah data</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <span class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">D</span>
+                                    <span class="font-medium">Delete - Menghapus data</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Jenis Pengolahan Data</h3>
+                        <div class="space-y-4">
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">🔍 Pencarian (Search)</h4>
+                                <p class="text-sm text-gray-600">Mencari data berdasarkan kriteria tertentu</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">📊 Pengurutan (Sort)</h4>
+                                <p class="text-sm text-gray-600">Mengurutkan data berdasarkan field tertentu</p>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg">
+                                <h4 class="font-medium text-gray-800 mb-2">🔢 Perhitungan</h4>
+                                <p class="text-sm text-gray-600">Menghitung total, rata-rata, maksimum, minimum</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Praktik -->
+        <div id="praktik" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    💻 <span class="ml-3">Praktik Pengolahan Data</span>
+                </h2>
+                
+                <!-- Simulasi Database Sederhana -->
+                <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Simulasi Database Perpustakaan</h3>
+                    
+                    <!-- Form Input -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-3">Tambah Buku Baru</h4>
+                            <div class="space-y-3">
+                                <input type="text" id="bookTitle" placeholder="Judul Buku" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="bookAuthor" placeholder="Penulis" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="number" id="bookYear" placeholder="Tahun Terbit" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <select id="bookCategory" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Pilih Kategori</option>
+                                    <option value="Fiksi">Fiksi</option>
+                                    <option value="Non-Fiksi">Non-Fiksi</option>
+                                    <option value="Sains">Sains</option>
+                                    <option value="Sejarah">Sejarah</option>
+                                </select>
+                                <button onclick="addBook()" class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                    Tambah Buku
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-medium text-gray-800 mb-3">Pencarian & Filter</h4>
+                            <div class="space-y-3">
+                                <input type="text" id="searchInput" placeholder="Cari berdasarkan judul atau penulis" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" oninput="searchBooks()">
+                                <select id="filterCategory" onchange="filterBooks()" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Semua Kategori</option>
+                                    <option value="Fiksi">Fiksi</option>
+                                    <option value="Non-Fiksi">Non-Fiksi</option>
+                                    <option value="Sains">Sains</option>
+                                    <option value="Sejarah">Sejarah</option>
+                                </select>
+                                <button onclick="sortBooks()" class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                                    Urutkan A-Z
+                                </button>
+                                <button onclick="clearAll()" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors">
+                                    Hapus Semua
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabel Hasil -->
+                    <div class="bg-white rounded-lg overflow-hidden">
+                        <div class="bg-blue-600 text-white px-4 py-3">
+                            <h4 class="font-medium">Database Buku (<span id="bookCount">3</span> buku)</h4>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-100">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left">ID</th>
+                                        <th class="px-4 py-3 text-left">Judul</th>
+                                        <th class="px-4 py-3 text-left">Penulis</th>
+                                        <th class="px-4 py-3 text-left">Tahun</th>
+                                        <th class="px-4 py-3 text-left">Kategori</th>
+                                        <th class="px-4 py-3 text-left">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="bookTableBody">
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="px-4 py-3">001</td>
+                                        <td class="px-4 py-3">Laskar Pelangi</td>
+                                        <td class="px-4 py-3">Andrea Hirata</td>
+                                        <td class="px-4 py-3">2005</td>
+                                        <td class="px-4 py-3"><span class="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs">Fiksi</span></td>
+                                        <td class="px-4 py-3">
+                                            <button onclick="deleteBook(0)" class="text-red-500 hover:text-red-700 text-sm">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="px-4 py-3">002</td>
+                                        <td class="px-4 py-3">Sapiens</td>
+                                        <td class="px-4 py-3">Yuval Noah Harari</td>
+                                        <td class="px-4 py-3">2011</td>
+                                        <td class="px-4 py-3"><span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Sejarah</span></td>
+                                        <td class="px-4 py-3">
+                                            <button onclick="deleteBook(1)" class="text-red-500 hover:text-red-700 text-sm">Hapus</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b hover:bg-gray-50">
+                                        <td class="px-4 py-3">003</td>
+                                        <td class="px-4 py-3">Fisika untuk SMA</td>
+                                        <td class="px-4 py-3">Dr. Bambang</td>
+                                        <td class="px-4 py-3">2020</td>
+                                        <td class="px-4 py-3"><span class="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs">Sains</span></td>
+                                        <td class="px-4 py-3">
+                                            <button onclick="deleteBook(2)" class="text-red-500 hover:text-red-700 text-sm">Hapus</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Kuis -->
+        <div id="kuis" class="section hidden">
+            <div class="bg-white rounded-xl shadow-lg p-8 mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6 flex items-center">
+                    🎯 <span class="ml-3">Kuis Pemahaman</span>
+                </h2>
+                
+                <div id="quizContainer" class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-4">Pertanyaan <span id="currentQuestion">1</span> dari <span id="totalQuestions">5</span></h3>
+                        <div id="questionText" class="text-gray-800 mb-4 text-lg">
+                            Apa yang dimaksud dengan basis data?
+                        </div>
+                        <div id="answerOptions" class="space-y-3">
+                            <button onclick="selectAnswer(0)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                                A. Kumpulan file yang tersimpan di komputer
+                            </button>
+                            <button onclick="selectAnswer(1)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                                B. Kumpulan data yang terorganisir dan tersimpan secara sistematis
+                            </button>
+                            <button onclick="selectAnswer(2)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                                C. Program untuk mengedit dokumen
+                            </button>
+                            <button onclick="selectAnswer(3)" class="answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors">
+                                D. Aplikasi untuk browsing internet
+                            </button>
+                        </div>
+                        <div class="mt-6 flex justify-between">
+                            <button onclick="previousQuestion()" id="prevBtn" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors" disabled>
+                                ← Sebelumnya
+                            </button>
+                            <button onclick="nextQuestion()" id="nextBtn" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                                Selanjutnya →
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="quizResult" class="hidden bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">Hasil Kuis</h3>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-green-600 mb-2" id="scoreDisplay">0/5</div>
+                            <p class="text-gray-700 mb-4" id="scoreMessage">Selamat! Anda telah menyelesaikan kuis.</p>
+                            <button onclick="restartQuiz()" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                                Ulangi Kuis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-300" class="text-sm text-gray-400 mt-2">© 22025 Koding & AI Learning Platform. Pak Zunny ❤️ SMANDUNG</p>
+           
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            document.getElementById(sectionId).classList.add('fade-in');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('border-blue-500', 'text-blue-600');
+                btn.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            event.target.classList.remove('border-transparent', 'text-gray-500');
+            event.target.classList.add('border-blue-500', 'text-blue-600');
+        }
+
+        // Database Simulation
+        let books = [
+            {id: 1, title: "Laskar Pelangi", author: "Andrea Hirata", year: 2005, category: "Fiksi"},
+            {id: 2, title: "Sapiens", author: "Yuval Noah Harari", year: 2011, category: "Sejarah"},
+            {id: 3, title: "Fisika untuk SMA", author: "Dr. Bambang", year: 2020, category: "Sains"}
+        ];
+        let nextId = 4;
+        let filteredBooks = [...books];
+
+        function addBook() {
+            const title = document.getElementById('bookTitle').value;
+            const author = document.getElementById('bookAuthor').value;
+            const year = document.getElementById('bookYear').value;
+            const category = document.getElementById('bookCategory').value;
+            
+            if (title && author && year && category) {
+                books.push({
+                    id: nextId++,
+                    title: title,
+                    author: author,
+                    year: parseInt(year),
+                    category: category
+                });
+                
+                // Clear form
+                document.getElementById('bookTitle').value = '';
+                document.getElementById('bookAuthor').value = '';
+                document.getElementById('bookYear').value = '';
+                document.getElementById('bookCategory').value = '';
+                
+                filteredBooks = [...books];
+                renderBooks();
+            } else {
+                alert('Mohon lengkapi semua field!');
+            }
+        }
+
+        function deleteBook(index) {
+            const bookToDelete = filteredBooks[index];
+            books = books.filter(book => book.id !== bookToDelete.id);
+            filteredBooks = [...books];
+            renderBooks();
+        }
+
+        function searchBooks() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            filteredBooks = books.filter(book => 
+                book.title.toLowerCase().includes(searchTerm) || 
+                book.author.toLowerCase().includes(searchTerm)
+            );
+            renderBooks();
+        }
+
+        function filterBooks() {
+            const category = document.getElementById('filterCategory').value;
+            if (category) {
+                filteredBooks = books.filter(book => book.category === category);
+            } else {
+                filteredBooks = [...books];
+            }
+            renderBooks();
+        }
+
+        function sortBooks() {
+            filteredBooks.sort((a, b) => a.title.localeCompare(b.title));
+            renderBooks();
+        }
+
+        function clearAll() {
+            if (confirm('Yakin ingin menghapus semua data?')) {
+                books = [];
+                filteredBooks = [];
+                renderBooks();
+            }
+        }
+
+        function renderBooks() {
+            const tbody = document.getElementById('bookTableBody');
+            const bookCount = document.getElementById('bookCount');
+            
+            tbody.innerHTML = '';
+            bookCount.textContent = filteredBooks.length;
+            
+            filteredBooks.forEach((book, index) => {
+                const categoryColors = {
+                    'Fiksi': 'bg-blue-100 text-blue-800',
+                    'Non-Fiksi': 'bg-yellow-100 text-yellow-800',
+                    'Sains': 'bg-purple-100 text-purple-800',
+                    'Sejarah': 'bg-green-100 text-green-800'
+                };
+                
+                tbody.innerHTML += `
+                    <tr class="border-b hover:bg-gray-50">
+                        <td class="px-4 py-3">${String(book.id).padStart(3, '0')}</td>
+                        <td class="px-4 py-3">${book.title}</td>
+                        <td class="px-4 py-3">${book.author}</td>
+                        <td class="px-4 py-3">${book.year}</td>
+                        <td class="px-4 py-3">
+                            <span class="${categoryColors[book.category]} px-2 py-1 rounded-full text-xs">${book.category}</span>
+                        </td>
+                        <td class="px-4 py-3">
+                            <button onclick="deleteBook(${index})" class="text-red-500 hover:text-red-700 text-sm">Hapus</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // Quiz System
+        const quizData = [
+            {
+                question: "Apa yang dimaksud dengan basis data?",
+                options: [
+                    "Kumpulan file yang tersimpan di komputer",
+                    "Kumpulan data yang terorganisir dan tersimpan secara sistematis",
+                    "Program untuk mengedit dokumen",
+                    "Aplikasi untuk browsing internet"
+                ],
+                correct: 1
+            },
+            {
+                question: "Apa kepanjangan dari CRUD dalam pengolahan data?",
+                options: [
+                    "Create, Read, Update, Delete",
+                    "Copy, Read, Upload, Download",
+                    "Create, Remove, Update, Display",
+                    "Connect, Read, Use, Delete"
+                ],
+                correct: 0
+            },
+            {
+                question: "Dalam struktur tabel, baris data disebut juga sebagai:",
+                options: [
+                    "Field",
+                    "Column",
+                    "Record",
+                    "Index"
+                ],
+                correct: 2
+            },
+            {
+                question: "Manakah yang BUKAN termasuk keuntungan menggunakan basis data?",
+                options: [
+                    "Menghindari duplikasi data",
+                    "Memudahkan pencarian informasi",
+                    "Memperlambat akses data",
+                    "Menjaga keamanan data"
+                ],
+                correct: 2
+            },
+            {
+                question: "Operasi untuk mencari data berdasarkan kriteria tertentu disebut:",
+                options: [
+                    "Sort",
+                    "Filter",
+                    "Update",
+                    "Delete"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        function loadQuestion() {
+            const question = quizData[currentQuestionIndex];
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = quizData.length;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('answerOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'answer-btn w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:bg-blue-50 hover:border-blue-300 transition-colors';
+                button.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+                button.onclick = () => selectAnswer(index);
+                
+                if (userAnswers[currentQuestionIndex] === index) {
+                    button.classList.add('bg-blue-100', 'border-blue-400');
+                }
+                
+                optionsContainer.appendChild(button);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === quizData.length - 1 ? 'Selesai' : 'Selanjutnya →';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuestionIndex] = answerIndex;
+            
+            // Update button styles
+            document.querySelectorAll('.answer-btn').forEach((btn, index) => {
+                btn.classList.remove('bg-blue-100', 'border-blue-400');
+                if (index === answerIndex) {
+                    btn.classList.add('bg-blue-100', 'border-blue-400');
+                }
+            });
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate score
+            score = 0;
+            userAnswers.forEach((answer, index) => {
+                if (answer === quizData[index].correct) {
+                    score++;
+                }
+            });
+            
+            // Show results
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            document.getElementById('scoreDisplay').textContent = `${score}/${quizData.length}`;
+            
+            let message = '';
+            if (score === quizData.length) {
+                message = 'Sempurna! Anda menguasai materi dengan sangat baik! 🎉';
+            } else if (score >= quizData.length * 0.8) {
+                message = 'Bagus sekali! Anda memahami sebagian besar materi! 👏';
+            } else if (score >= quizData.length * 0.6) {
+                message = 'Cukup baik! Masih ada beberapa konsep yang perlu dipelajari lagi. 📚';
+            } else {
+                message = 'Perlu belajar lebih giat lagi. Jangan menyerah! 💪';
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('quizResult').classList.add('hidden');
+            loadQuestion();
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestion();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9764af3537bbff89',t:'MTc1NjM5MzI5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

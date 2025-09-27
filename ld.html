@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produksi & Diseminasi Konten Digital - Kelas 10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .progress-bar { transition: width 0.5s ease; }
+        .fade-in { animation: fadeIn 0.6s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-2">📱 Produksi & Diseminasi Konten Digital</h1>
+                <p class="text-xl opacity-90">Kelas 10 - Fase E | Literasi Digital</p>
+                <div class="mt-4 bg-white/20 rounded-full px-6 py-2 inline-block">
+                    <span class="text-sm font-medium">🎯 Capaian: Menerapkan produksi konten multimedia</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="showSection('overview')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors bg-blue-100 text-blue-700">📋 Overview</button>
+                <button onclick="showSection('theory')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">📚 Teori</button>
+                <button onclick="showSection('practice')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">🛠️ Praktik</button>
+                <button onclick="showSection('assessment')" class="nav-btn px-4 py-2 rounded-lg font-medium transition-colors hover:bg-gray-100">📊 Evaluasi</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <div class="bg-white border-b">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between text-sm text-gray-600 mb-2">
+                <span>Progress Pembelajaran</span>
+                <span id="progress-text">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2">
+                <div id="progress-bar" class="progress-bar bg-blue-600 h-2 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6 py-8">
+        <!-- Overview Section -->
+        <section id="overview" class="section-content fade-in">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">🎯 Tujuan Pembelajaran</h2>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Memahami konsep produksi konten digital multimedia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Menguasai teknik editing dan desain konten</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Memahami strategi diseminasi konten digital</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-3">✓</span>
+                            <span>Menerapkan etika dan hukum konten digital</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">📋 Kompetensi Inti</h2>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Produksi Konten</h3>
+                            <p class="text-gray-600 text-sm">Membuat konten multimedia yang menarik dan berkualitas</p>
+                        </div>
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Diseminasi</h3>
+                            <p class="text-gray-600 text-sm">Menyebarkan konten melalui platform digital yang tepat</p>
+                        </div>
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h3 class="font-semibold text-gray-800">Literasi Digital</h3>
+                            <p class="text-gray-600 text-sm">Memahami dampak dan tanggung jawab digital</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-500 to-purple-600 rounded-xl p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-4">🚀 Mari Mulai Belajar!</h2>
+                <p class="text-xl mb-6">Jelajahi dunia produksi konten digital dan pelajari cara membuat konten yang impactful</p>
+                <button onclick="showSection('theory')" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    Mulai Pembelajaran →
+                </button>
+            </div>
+        </section>
+
+        <!-- Theory Section -->
+        <section id="theory" class="section-content hidden">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">📚 Materi Pembelajaran</h2>
+                
+                <div class="grid gap-6">
+                    <!-- Modul 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-blue-500 text-white p-4">
+                            <h3 class="text-xl font-bold">Modul 1: Pengenalan Konten Digital Multimedia</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-3">🎨 Jenis-jenis Konten Digital:</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• <strong>Teks:</strong> Artikel, blog, caption</li>
+                                        <li>• <strong>Gambar:</strong> Foto, ilustrasi, infografis</li>
+                                        <li>• <strong>Video:</strong> Tutorial, vlog, animasi</li>
+                                        <li>• <strong>Audio:</strong> Podcast, musik, sound effect</li>
+                                        <li>• <strong>Interaktif:</strong> Game, quiz, AR/VR</li>
+                                    </ul>
+                                </div>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-gray-800 mb-3">💡 Contoh Multimedia</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">📹</div>
+                                            <div>
+                                                <p class="font-medium">Video Edukasi</p>
+                                                <p class="text-sm text-gray-600">Kombinasi visual + audio + teks</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">📊</div>
+                                            <div>
+                                                <p class="font-medium">Infografis</p>
+                                                <p class="text-sm text-gray-600">Data visual + desain menarik</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button onclick="completeModule(1)" class="mt-4 bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                                ✓ Selesai Modul 1
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modul 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-green-500 text-white p-4">
+                            <h3 class="text-xl font-bold">Modul 2: Proses Produksi Konten</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                <div class="text-center p-4 bg-blue-50 rounded-lg">
+                                    <div class="text-3xl mb-2">📝</div>
+                                    <h4 class="font-semibold">Pra-Produksi</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Perencanaan, riset, storyboard</p>
+                                </div>
+                                <div class="text-center p-4 bg-green-50 rounded-lg">
+                                    <div class="text-3xl mb-2">🎬</div>
+                                    <h4 class="font-semibold">Produksi</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Pembuatan, recording, shooting</p>
+                                </div>
+                                <div class="text-center p-4 bg-purple-50 rounded-lg">
+                                    <div class="text-3xl mb-2">✂️</div>
+                                    <h4 class="font-semibold">Pasca-Produksi</h4>
+                                    <p class="text-sm text-gray-600 mt-2">Editing, review, finalisasi</p>
+                                </div>
+                            </div>
+                            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                                <h4 class="font-semibold text-yellow-800">💡 Tips Produksi:</h4>
+                                <ul class="mt-2 text-yellow-700 text-sm space-y-1">
+                                    <li>• Tentukan target audience sebelum membuat konten</li>
+                                    <li>• Gunakan tools yang sesuai dengan kemampuan dan budget</li>
+                                    <li>• Perhatikan kualitas visual dan audio</li>
+                                    <li>• Konsisten dengan brand/tema yang dipilih</li>
+                                </ul>
+                            </div>
+                            <button onclick="completeModule(2)" class="mt-4 bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                                ✓ Selesai Modul 2
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modul 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-purple-500 text-white p-4">
+                            <h3 class="text-xl font-bold">Modul 3: Strategi Diseminasi Konten</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-3">🌐 Platform Digital:</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                            <span class="text-2xl">📘</span>
+                                            <div>
+                                                <p class="font-medium">Media Sosial</p>
+                                                <p class="text-sm text-gray-600">Instagram, TikTok, YouTube</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-3 p-3 bg-green-50 rounded-lg">
+                                            <span class="text-2xl">🌍</span>
+                                            <div>
+                                                <p class="font-medium">Website & Blog</p>
+                                                <p class="text-sm text-gray-600">WordPress, Medium, personal site</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-3 p-3 bg-purple-50 rounded-lg">
+                                            <span class="text-2xl">📱</span>
+                                            <div>
+                                                <p class="font-medium">Platform Khusus</p>
+                                                <p class="text-sm text-gray-600">LinkedIn, Behance, GitHub</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 mb-3">📈 Strategi Engagement:</h4>
+                                    <ul class="space-y-2 text-gray-600">
+                                        <li>• <strong>Timing:</strong> Post di waktu optimal audience</li>
+                                        <li>• <strong>Hashtag:</strong> Gunakan hashtag yang relevan</li>
+                                        <li>• <strong>Interaksi:</strong> Respon komentar dan feedback</li>
+                                        <li>• <strong>Konsistensi:</strong> Posting secara teratur</li>
+                                        <li>• <strong>Analytics:</strong> Monitor performa konten</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button onclick="completeModule(3)" class="mt-4 bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                                ✓ Selesai Modul 3
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Modul 4 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                        <div class="bg-red-500 text-white p-4">
+                            <h3 class="text-xl font-bold">Modul 4: Etika & Hukum Digital</h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-red-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">⚖️ Hak Cipta & Copyright</h4>
+                                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                            <li>• Gunakan konten berlisensi bebas</li>
+                                            <li>• Credit sumber yang digunakan</li>
+                                            <li>• Pahami fair use policy</li>
+                                        </ul>
+                                    </div>
+                                    <div class="border-l-4 border-orange-500 pl-4">
+                                        <h4 class="font-semibold text-gray-800">🛡️ Privasi & Data</h4>
+                                        <ul class="text-sm text-gray-600 mt-2 space-y-1">
+                                            <li>• Jaga privasi orang lain</li>
+                                            <li>• Minta izin sebelum publikasi</li>
+                                            <li>• Hindari sharing data sensitif</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="bg-red-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-red-800 mb-3">⚠️ Yang Harus Dihindari:</h4>
+                                    <ul class="text-red-700 text-sm space-y-2">
+                                        <li>❌ Plagiarisme konten</li>
+                                        <li>❌ Hoax dan misinformasi</li>
+                                        <li>❌ Konten yang menyinggung SARA</li>
+                                        <li>❌ Cyberbullying</li>
+                                        <li>❌ Pelanggaran privasi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button onclick="completeModule(4)" class="mt-4 bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 transition-colors">
+                                ✓ Selesai Modul 4
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section id="practice" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">🛠️ Praktik & Latihan</h2>
+            
+            <div class="grid gap-6">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📱</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Project 1: Membuat Konten Instagram</h3>
+                            <p class="text-gray-600">Buat post Instagram dengan tema "Teknologi Ramah Lingkungan"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-blue-800 mb-2">📋 Instruksi:</h4>
+                        <ol class="text-blue-700 text-sm space-y-1">
+                            <li>1. Pilih topik spesifik (solar panel, electric car, dll)</li>
+                            <li>2. Buat desain visual menggunakan Canva/Figma</li>
+                            <li>3. Tulis caption yang engaging (max 150 kata)</li>
+                            <li>4. Tentukan 5-10 hashtag yang relevan</li>
+                            <li>5. Simulasikan posting di platform</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(1)" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                            🚀 Mulai Project
+                        </button>
+                        <button onclick="showProjectGuide(1)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            📖 Panduan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">🎥</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Project 2: Video Tutorial Singkat</h3>
+                            <p class="text-gray-600">Buat video tutorial 60 detik tentang skill digital</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-green-800 mb-2">🎬 Spesifikasi:</h4>
+                        <ul class="text-green-700 text-sm space-y-1">
+                            <li>• Durasi: 45-60 detik</li>
+                            <li>• Format: MP4, resolusi minimal 720p</li>
+                            <li>• Audio: Jernih, tanpa noise</li>
+                            <li>• Konten: Tutorial praktis dan mudah diikuti</li>
+                            <li>• Editing: Gunakan transisi dan text overlay</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(2)" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-colors">
+                            🎬 Mulai Project
+                        </button>
+                        <button onclick="showProjectGuide(2)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            📖 Panduan
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <span class="text-2xl">📊</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800">Project 3: Infografis Data</h3>
+                            <p class="text-gray-600">Visualisasikan data statistik dalam bentuk infografis menarik</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-purple-50 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-purple-800 mb-2">📈 Requirements:</h4>
+                        <ul class="text-purple-700 text-sm space-y-1">
+                            <li>• Tema: Data pendidikan/teknologi Indonesia</li>
+                            <li>• Minimal 5 data point yang berbeda</li>
+                            <li>• Gunakan chart, icon, dan visual elements</li>
+                            <li>• Color scheme yang konsisten</li>
+                            <li>• Sumber data harus dicantumkan</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <button onclick="startProject(3)" class="bg-purple-500 text-white px-6 py-2 rounded-lg hover:bg-purple-600 transition-colors">
+                            📊 Mulai Project
+                        </button>
+                        <button onclick="showProjectGuide(3)" class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg hover:bg-gray-300 transition-colors">
+                            📖 Panduan
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools & Resources -->
+            <div class="mt-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4">🛠️ Tools & Resources</h3>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">🎨 Design Tools</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Canva (Free)</li>
+                            <li>• Figma (Free)</li>
+                            <li>• GIMP (Free)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">🎬 Video Editing</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• CapCut (Free)</li>
+                            <li>• DaVinci Resolve (Free)</li>
+                            <li>• OpenShot (Free)</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/20 rounded-lg p-4">
+                        <h4 class="font-semibold mb-2">📸 Stock Resources</h4>
+                        <ul class="text-sm space-y-1">
+                            <li>• Unsplash (Photos)</li>
+                            <li>• Pexels (Videos)</li>
+                            <li>• Flaticon (Icons)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Section -->
+        <section id="assessment" class="section-content hidden">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">📊 Evaluasi Pembelajaran</h2>
+            
+            <!-- Quiz Section -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">🧠 Kuis Pemahaman</h3>
+                <div id="quiz-container">
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 1: Apa yang dimaksud dengan konten multimedia?</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="a" class="text-blue-600">
+                                <span>Konten yang hanya berisi teks</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="b" class="text-blue-600">
+                                <span>Konten yang menggabungkan berbagai media (teks, gambar, audio, video)</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q1" value="c" class="text-blue-600">
+                                <span>Konten yang hanya berisi gambar</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 2: Tahapan produksi konten yang benar adalah:</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="a" class="text-blue-600">
+                                <span>Produksi → Pra-produksi → Pasca-produksi</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="b" class="text-blue-600">
+                                <span>Pra-produksi → Produksi → Pasca-produksi</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q2" value="c" class="text-blue-600">
+                                <span>Pasca-produksi → Produksi → Pra-produksi</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question mb-6">
+                        <h4 class="font-semibold text-lg mb-4">Pertanyaan 3: Platform mana yang paling cocok untuk konten video pendek?</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="a" class="text-blue-600">
+                                <span>LinkedIn</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="b" class="text-blue-600">
+                                <span>TikTok dan Instagram Reels</span>
+                            </label>
+                            <label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <input type="radio" name="q3" value="c" class="text-blue-600">
+                                <span>Medium</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="checkQuiz()" class="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors font-semibold">
+                    📝 Submit Kuis
+                </button>
+                
+                <div id="quiz-result" class="hidden mt-6 p-4 rounded-lg"></div>
+            </div>
+
+            <!-- Rubrik Penilaian -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">📋 Rubrik Penilaian Project</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 p-3 text-left">Aspek Penilaian</th>
+                                <th class="border border-gray-300 p-3 text-center">Excellent (4)</th>
+                                <th class="border border-gray-300 p-3 text-center">Good (3)</th>
+                                <th class="border border-gray-300 p-3 text-center">Fair (2)</th>
+                                <th class="border border-gray-300 p-3 text-center">Poor (1)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 p-3 font-semibold">Kreativitas & Originalitas</td>
+                                <td class="border border-gray-300 p-3 text-sm">Sangat kreatif, ide original, unik</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kreatif, beberapa ide original</td>
+                                <td class="border border-gray-300 p-3 text-sm">Cukup kreatif, ide standar</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kurang kreatif, meniru</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 p-3 font-semibold">Kualitas Teknis</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kualitas sangat baik, profesional</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kualitas baik, rapi</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kualitas cukup, ada kekurangan</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kualitas rendah, banyak error</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-3 font-semibold">Relevansi Konten</td>
+                                <td class="border border-gray-300 p-3 text-sm">Sangat relevan dengan tema</td>
+                                <td class="border border-gray-300 p-3 text-sm">Relevan dengan tema</td>
+                                <td class="border border-gray-300 p-3 text-sm">Cukup relevan</td>
+                                <td class="border border-gray-300 p-3 text-sm">Kurang relevan</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 p-3 font-semibold">Strategi Diseminasi</td>
+                                <td class="border border-gray-300 p-3 text-sm">Strategi lengkap dan tepat sasaran</td>
+                                <td class="border border-gray-300 p-3 text-sm">Strategi baik dan jelas</td>
+                                <td class="border border-gray-300 p-3 text-sm">Strategi cukup</td>
+                                <td class="border border-gray-300 p-3 text-sm">Strategi kurang jelas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Portfolio Submission -->
+            <div class="bg-gradient-to-r from-green-500 to-blue-600 rounded-xl p-6 text-white">
+                <h3 class="text-2xl font-bold mb-4">📁 Submit Portfolio</h3>
+                <p class="mb-4">Kumpulkan semua project Anda dalam satu portfolio digital</p>
+                <div class="bg-white/20 rounded-lg p-4 mb-4">
+                    <h4 class="font-semibold mb-2">Portfolio harus berisi:</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>✓ Project 1: Konten Instagram + analisis strategi</li>
+                        <li>✓ Project 2: Video tutorial + reflection</li>
+                        <li>✓ Project 3: Infografis + sumber data</li>
+                        <li>✓ Refleksi pembelajaran (500 kata)</li>
+                    </ul>
+                </div>
+                <button onclick="submitPortfolio()" class="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    📤 Submit Portfolio
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl p-8 max-w-2xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <script>
+        let completedModules = [];
+        let currentProgress = 0;
+
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.remove('hidden');
+            document.getElementById(sectionName).classList.add('fade-in');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-100', 'text-blue-700');
+                btn.classList.add('hover:bg-gray-100');
+            });
+            
+            event.target.classList.add('bg-blue-100', 'text-blue-700');
+            event.target.classList.remove('hover:bg-gray-100');
+        }
+
+        function completeModule(moduleNumber) {
+            if (!completedModules.includes(moduleNumber)) {
+                completedModules.push(moduleNumber);
+                updateProgress();
+                
+                // Visual feedback
+                event.target.innerHTML = '✅ Modul Selesai';
+                event.target.classList.remove('bg-blue-500', 'hover:bg-blue-600', 'bg-green-500', 'hover:bg-green-600', 'bg-purple-500', 'hover:bg-purple-600', 'bg-red-500', 'hover:bg-red-600');
+                event.target.classList.add('bg-gray-400', 'cursor-not-allowed');
+                event.target.disabled = true;
+                
+                // Show completion message
+                setTimeout(() => {
+                    alert(`🎉 Selamat! Anda telah menyelesaikan Modul ${moduleNumber}`);
+                }, 500);
+            }
+        }
+
+        function updateProgress() {
+            const totalModules = 4;
+            const progressPercentage = (completedModules.length / totalModules) * 100;
+            currentProgress = progressPercentage;
+            
+            document.getElementById('progress-bar').style.width = progressPercentage + '%';
+            document.getElementById('progress-text').textContent = Math.round(progressPercentage) + '%';
+        }
+
+        function startProject(projectNumber) {
+            const projectTitles = {
+                1: 'Project 1: Konten Instagram',
+                2: 'Project 2: Video Tutorial',
+                3: 'Project 3: Infografis Data'
+            };
+            
+            const projectContent = {
+                1: `
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">🎯 Langkah-langkah:</h4>
+                            <ol class="text-blue-700 space-y-2">
+                                <li>1. <strong>Riset Topik:</strong> Pilih teknologi ramah lingkungan yang menarik</li>
+                                <li>2. <strong>Buat Visual:</strong> Gunakan Canva untuk membuat desain 1080x1080px</li>
+                                <li>3. <strong>Tulis Caption:</strong> Buat caption yang informatif dan engaging</li>
+                                <li>4. <strong>Hashtag Research:</strong> Cari hashtag yang trending dan relevan</li>
+                                <li>5. <strong>Preview:</strong> Simulasikan tampilan di Instagram</li>
+                            </ol>
+                        </div>
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-yellow-800 mb-2">💡 Tips Sukses:</h4>
+                            <ul class="text-yellow-700 text-sm space-y-1">
+                                <li>• Gunakan warna yang eye-catching tapi tidak berlebihan</li>
+                                <li>• Sertakan call-to-action di caption</li>
+                                <li>• Pastikan teks mudah dibaca di mobile</li>
+                                <li>• Gunakan maksimal 30 hashtag</li>
+                            </ul>
+                        </div>
+                        <button onclick="closeModal()" class="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors">
+                            🚀 Mulai Mengerjakan
+                        </button>
+                    </div>
+                `,
+                2: `
+                    <div class="space-y-4">
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">🎬 Panduan Produksi:</h4>
+                            <ol class="text-green-700 space-y-2">
+                                <li>1. <strong>Storyboard:</strong> Buat sketsa alur video 60 detik</li>
+                                <li>2. <strong>Setup:</strong> Siapkan lighting dan audio yang baik</li>
+                                <li>3. <strong>Recording:</strong> Rekam dalam segmen-segmen pendek</li>
+                                <li>4. <strong>Editing:</strong> Gunakan CapCut atau DaVinci Resolve</li>
+                                <li>5. <strong>Export:</strong> Render dalam format MP4 720p minimum</li>
+                            </ol>
+                        </div>
+                        <div class="bg-green-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-800 mb-2">📱 Ide Tutorial:</h4>
+                            <ul class="text-green-700 text-sm space-y-1">
+                                <li>• Cara membuat password yang kuat</li>
+                                <li>• Tips menggunakan Google Drive</li>
+                                <li>• Shortcut keyboard yang berguna</li>
+                                <li>• Cara backup data smartphone</li>
+                            </ul>
+                        </div>
+                        <button onclick="closeModal()" class="w-full bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition-colors">
+                            🎬 Mulai Produksi
+                        </button>
+                    </div>
+                `,
+                3: `
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">📊 Proses Pembuatan:</h4>
+                            <ol class="text-purple-700 space-y-2">
+                                <li>1. <strong>Cari Data:</strong> Gunakan sumber terpercaya (BPS, Kemendikbud, dll)</li>
+                                <li>2. <strong>Analisis:</strong> Pilih data yang paling menarik dan relevan</li>
+                                <li>3. <strong>Desain:</strong> Buat layout di Canva dengan template infografis</li>
+                                <li>4. <strong>Visualisasi:</strong> Gunakan chart, icon, dan warna yang konsisten</li>
+                                <li>5. <strong>Review:</strong> Pastikan data akurat dan mudah dipahami</li>
+                            </ol>
+                        </div>
+                        <div class="bg-purple-100 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-800 mb-2">📈 Sumber Data Rekomendasi:</h4>
+                            <ul class="text-purple-700 text-sm space-y-1">
+                                <li>• BPS.go.id (Badan Pusat Statistik)</li>
+                                <li>• Data.go.id (Portal Data Indonesia)</li>
+                                <li>• Kemendikbud.go.id</li>
+                                <li>• APJII.or.id (Asosiasi Penyelenggara Jasa Internet Indonesia)</li>
+                            </ul>
+                        </div>
+                        <button onclick="closeModal()" class="w-full bg-purple-500 text-white py-3 rounded-lg hover:bg-purple-600 transition-colors">
+                            📊 Mulai Desain
+                        </button>
+                    </div>
+                `
+            };
+            
+            document.getElementById('modal-title').textContent = projectTitles[projectNumber];
+            document.getElementById('modal-content').innerHTML = projectContent[projectNumber];
+            document.getElementById('project-modal').classList.remove('hidden');
+            document.getElementById('project-modal').classList.add('flex');
+        }
+
+        function showProjectGuide(projectNumber) {
+            const guides = {
+                1: 'Panduan lengkap membuat konten Instagram yang engaging dan profesional.',
+                2: 'Tutorial step-by-step produksi video pendek yang berkualitas.',
+                3: 'Cara membuat infografis yang informatif dan menarik secara visual.'
+            };
+            
+            alert(`📖 ${guides[projectNumber]}\n\nSilakan klik "Mulai Project" untuk melihat panduan detail.`);
+        }
+
+        function closeModal() {
+            document.getElementById('project-modal').classList.add('hidden');
+            document.getElementById('project-modal').classList.remove('flex');
+        }
+
+        function checkQuiz() {
+            const answers = {
+                q1: 'b',
+                q2: 'b', 
+                q3: 'b'
+            };
+            
+            let score = 0;
+            let totalQuestions = Object.keys(answers).length;
+            
+            for (let question in answers) {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                }
+            }
+            
+            const percentage = (score / totalQuestions) * 100;
+            const resultDiv = document.getElementById('quiz-result');
+            
+            resultDiv.classList.remove('hidden');
+            
+            if (percentage >= 80) {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-green-100 border border-green-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">🎉</span>
+                        <div>
+                            <h4 class="font-semibold text-green-800">Excellent!</h4>
+                            <p class="text-green-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-green-600 mt-1">Pemahaman Anda sangat baik!</p>
+                        </div>
+                    </div>
+                `;
+            } else if (percentage >= 60) {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-yellow-100 border border-yellow-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">👍</span>
+                        <div>
+                            <h4 class="font-semibold text-yellow-800">Good Job!</h4>
+                            <p class="text-yellow-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-yellow-600 mt-1">Coba review materi sekali lagi.</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultDiv.className = 'mt-6 p-4 rounded-lg bg-red-100 border border-red-300';
+                resultDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">📚</span>
+                        <div>
+                            <h4 class="font-semibold text-red-800">Perlu Belajar Lagi</h4>
+                            <p class="text-red-700">Skor Anda: ${score}/${totalQuestions} (${percentage}%)</p>
+                            <p class="text-sm text-red-600 mt-1">Silakan pelajari kembali materi teori.</p>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function submitPortfolio() {
+            if (completedModules.length < 4) {
+                alert('⚠️ Harap selesaikan semua modul terlebih dahulu sebelum submit portfolio.');
+                return;
+            }
+            
+            alert('📤 Portfolio berhasil disubmit!\n\n✅ Semua project telah diterima\n✅ Guru akan memberikan feedback dalam 3-5 hari kerja\n\nTerima kasih atas partisipasi Anda! 🎉');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('overview');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97644cac50c3fd6f',t:'MTc1NjM4OTI1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
